@@ -3,7 +3,7 @@
  # Title:
 
  popneed_currency:0 "货币"
- popneed_fiancial_producte:0 "金融产品"
+ popneed_financial_producte:0 "金融产品"
 
  # Goods :
 
@@ -96,7 +96,7 @@
  toscane_lira_c:0 "托斯卡纳里拉"
  tunisian_dinar_c:0 "突尼斯第纳尔"
  tuareg_ouguiya_c:0 "图阿雷格乌吉亚"
- uni_c:0 "通货"
+ uni_c:0 "流通货币"
  united_states_dollar_c:0 "美元"
  venezuelan_peso_c:0 "委内瑞拉比索"
  west_african_eco_c:0 "西非埃科"

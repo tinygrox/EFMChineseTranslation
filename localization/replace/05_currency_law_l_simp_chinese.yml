@@ -142,7 +142,7 @@
  law_toscane_lira_currency: "托斯卡纳里拉"
  law_tunisian_dinar_currency: "突尼斯第纳尔"
  law_tuareg_ouguiya_currency: "图阿雷格乌吉亚"
- law_uni_currency: "通货"
+ law_uni_currency: "流通货币"
  law_united_states_dollar_currency: "美元"
  law_venezuelan_peso_currency: "委内瑞拉比索"
  law_west_african_eco_currency: "西非埃科"
@@ -254,7 +254,7 @@
  #additional law:
  lawgroup_external_monetary_policy: "对外货币政策"
  law_no_external_monetary_policy: "无对外货币政策"
- law_desactive_bc: "中央银行关闭"
+ law_desactive_bc: "关闭中央银行"
  law_customs_union_limit_20: "关税同盟限制 20%"
  law_protectora_limit_30: "保护限制 30%"
  law_dominion_limit_50: "自治领限制 50%"
@@ -263,7 +263,7 @@
 
  lawgroup_external_monetary_policy_desc: "对外货币政策"
  law_no_external_monetary_policy_desc: "无对外货币政策"
- law_desactive_bc_desc: "中央银行关闭"
+ law_desactive_bc_desc: "关闭中央银行"
  law_customs_union_limit_20_desc: "关税同盟限制 20%"
  law_protectora_limit_30_desc: "保护限制 30%"
  law_dominion_limit_50_desc: "自治领限制 50%"

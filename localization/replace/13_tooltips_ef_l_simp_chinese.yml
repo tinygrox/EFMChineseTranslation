@@ -559,7 +559,7 @@
 
  RESERVE_CURRENCY_TOOLTIPS_uni:0 "$total_amount_uni$\n$uni_amount$"
  total_amount_uni:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_uni_state')|+D] @uni!"
- uni_amount:0 "通货@uni_c!: #T [State.MakeScope.Var('stockpiling_uni_state_1').GetValue|=+D]#! @uni!"
+ uni_amount:0 "流通货币@uni_c!: #T [State.MakeScope.Var('stockpiling_uni_state_1').GetValue|=+D]#! @uni!"
 
  #####################################################################################################################
  #####################################################################################################################
@@ -754,4 +754,4 @@
 
  RESERVE_CURRENCY_TOOLTIPS_player_uni:0 "$total_amount_BP_uni$\n$uni_amount_BP$"
  total_amount_BP_uni:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_uni_added_state')|+D] @uni!"
- uni_amount_BP:0 "通货@uni_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_uni_state')|=+D]#! @uni!"
+ uni_amount_BP:0 "流通货币@uni_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_uni_state')|=+D]#! @uni!"
