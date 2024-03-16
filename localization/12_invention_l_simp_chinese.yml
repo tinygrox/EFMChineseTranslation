@@ -1,0 +1,25 @@
+﻿l_simp_chinese:
+
+ #building
+ stockpiling_goods:0 "货物囤积"
+ stockpiling_goods_desc:0 "国家仓储技术解锁后，国家将开始[concept_flow_storage]。[concept_flow_storage]可以无成本存储市场结余物资。与高成本的国家储备技术实现的进货和出货订单不一样。国家储备可能会耗费大量资金，但却能提供更好的储备。"
+
+ national_stockpile:0 "国家仓储"
+ national_stockpile_desc:0 "这项技术将允许你在不到1年的时间里创建一个国家仓储"
+
+ financial_center:0 "金融中心"
+ financial_center_desc:0 "这项技术将会在 1 年内建立一个金融中心"
+
+ #mechanique:
+
+ monetary_policy_tools:0 "货币政策工具"
+ monetary_policy_tools_desc:0 "这项技术将允许你完全管理国家货币"
+
+ gold_standard:0 "金本位制"
+ gold_standard_desc:0 "金本位制是指本国的货币的价值直接与特定数量的黄金挂钩。在这样的币值体系中，货币单位可以兑换成固定数量的黄金，反之亦然。金本位制在历史上一直用来对货币的稳定性进行锚定，确保人们对货币的价值保持信心。然而，这种制度在 20 世纪就已经被大量弃用，转而采用了另一种更为灵活的货币制度。"
+
+ gold_exchange_standard:0 "金汇兑本位制"
+ gold_exchange_standard_desc:0 "金汇兑本位制是金本位制的一种变体，在战时得到广泛应用，特别是第一次世界大战后，布雷顿森林体系采用之前应用。在金汇兑本位制下，各国的储备不仅以黄金的形式存在，还包括外国货币，主要为美元，美元可直接兑换为黄金。这使得国际贸易和金融体系拥有了更大的灵活性，因为各国可以将储备以黄金和外汇的组合形式同时持有。然而，该制度存在有许多问题，其中就包括黄金的稀缺，因此在经历了一系列的调整后最终还是在二战后为布雷顿森林体系让路。"
+
+ floating_exchange_rates:0 "浮动汇率制"
+ floating_exchange_rates_desc:0 "浮动汇率制度中，本国货币价值由外汇市场的供求关系决定。与固定汇率制度不同，在固定汇率制度中，政府或央行手动指定本国货币相对于其他货币的价值，而浮动汇率制度则使货币价值根据市场情况自由波动"

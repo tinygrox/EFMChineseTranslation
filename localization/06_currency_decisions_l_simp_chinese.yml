@@ -1,0 +1,98 @@
+﻿l_simp_chinese:
+
+ #Title : 
+
+ Open_Cheat_Decision:0 "货币决议"
+ Close_Cheat_Decison:0 "关闭货币决议"
+
+ Open_Law_Decision:0 "   主权货币变更"
+ Close_Law_Decision:0 "   关闭主权货币变更"
+
+ law_money_currency_Decision:0 "      变更货币为流通货币 [GetGoods('money').GetTextIcon]"
+ law_peso_currency_Decision:0 "      变更货币为比索 [GetGoods('peso_c').GetTextIcon]"
+ law_real_currency_Decision:0 "      变更货币为雷亚尔 [GetGoods('real_c').GetTextIcon]"
+ law_brazilian_real_currency_Decision:0 "      变更货币为巴西雷亚尔 [GetGoods('brazilian_real_c').GetTextIcon]"
+ law_franc_currency_Decision:0 "      变更货币为法郎 [GetGoods('franc_c').GetTextIcon]"
+ law_dollar_currency_Decision:0 "      变更货币为美元 [GetGoods('dollar_c').GetTextIcon]"
+ law_mark_currency_Decision:0 "      变更货币为马克 [GetGoods('mark_c').GetTextIcon]"
+ law_sterling_currency_Decision:0 "      变更货币为英镑 [GetGoods('pound_sterling_c').GetTextIcon]" # [GetGoods('sterling_c').GetTextIcon]
+ law_gulden_currency_Decision:0 "      变更货币为基尔德盾 [GetGoods('gulden_c').GetTextIcon]"
+ law_yuan_currency_Decision:0 "      变更货币为元 [GetGoods('yuan_c').GetTextIcon]"
+ law_rupee_currency_Decision:0 "      变更货币为卢比 [GetGoods('rupee_c').GetTextIcon]"
+ law_yen_currency_Decision:0 "      变更货币为円 [GetGoods('yen_c').GetTextIcon]"
+ law_peseta_currency_Decision:0 "      变更货币为比塞塔 [GetGoods('peseta_c').GetTextIcon]"
+ law_ottoman_lira_currency_Decision:0 "      变更货币为奥斯曼里拉 [GetGoods('ottoman_lira_c').GetTextIcon]"
+ law_ruble_currency_Decision:0 "      变更货币为卢布 [GetGoods('ruble_c').GetTextIcon]"
+ law_lira_currency_Decision:0 "      变更货币为里拉 [GetGoods('lira_c').GetTextIcon]"
+ law_florin_currency_Decision:0 "      变更货币为佛罗林 [GetGoods('florin_c').GetTextIcon]"
+ law_belgian_franc_currency_Decision:0 "      变更货币为比利时法郎 [GetGoods('belgian_franc_c').GetTextIcon]"
+ law_swiss_franc_currency_Decision:0 "      变更货币为瑞士法郎 [GetGoods('swiss_franc_c').GetTextIcon]"
+ law_dinar_currency_Decision:0 "      变更货币为第纳尔 [GetGoods('dinar_c').GetTextIcon]"
+ law_krone_currency_Decision:0 "      变更货币为克朗 [GetGoods('krone_c').GetTextIcon]"
+ law_leu_currency_Decision:0 "      变更货币为列伊 [GetGoods('leu_c').GetTextIcon]"
+ law_drachma_currency_Decision:0 "      变更货币为德拉克马 [GetGoods('drachma_c').GetTextIcon]"
+ law_qiran_currency_Decision:0 "      变更货币为伊朗克兰 [GetGoods('qiran_c').GetTextIcon]"
+ law_baht_currency_Decision:0 "      变更货币为泰铢 [GetGoods('baht_c').GetTextIcon]"
+ law_no_market_liquidity_currency_Decision:0 "      变更为货币无市场流通"
+
+ Open_Law_Monetary_policy_Decision:0 "   货币政策法律变更"
+ Close_Law_Monetary_policy_Decision:0 "   关闭货币政策法律变更"
+
+
+ Law_No_Monetary_Policy_Decision:0 "      颁布无货币政策"
+ Law_Devaluation_policy_Decision:0 "      颁布货币法定贬值政策"
+ Law_Revaluation_policy_Decision:0 "      颁布货币法定升值政策"
+
+ Open_Stop_War_Economy_Mechanic_Decision:0 "   启用战时经济机制"
+ Close_Stop_War_Economy_Mechanic_Decision:0 "   禁用战时经济机制"
+
+ central_bank_mouve_to_new_capital:0 "重新生成[concept_central_bank]"
+
+ #Desc : 
+
+ Open_Cheat_Decision_desc:0 "指导本国货币政策"
+ Close_Cheat_Decison_desc:0 "指导本国货币政策"
+
+ Open_Law_Decision_desc:0 "     主权货币变更法律"
+ Close_Law_Decision_desc:0 "     关闭主权货币变更法律"
+
+ law_money_currency_Decision_desc:0 "          使用流通货币作为我们的货币"
+ law_peso_currency_Decision_desc:0 "          使用比索作为我们的货币"
+ law_real_currency_Decision_desc:0 "          使用雷亚尔作为我们的货币" 
+ law_brazilian_real_currency_Decision_desc:0 "          使用巴西雷亚尔作为我们的货币"
+ law_franc_currency_Decision_desc:0 "          使用法郎作为我们的货币" 
+ law_dollar_currency_Decision_desc:0 "          使用美元作为我们的货币"
+ law_mark_currency_Decision_desc:0 "          使用马克作为我们的货币" 
+ law_sterling_currency_Decision_desc:0 "          使用英镑作为我们的货币" 
+ law_gulden_currency_Decision_desc:0 "          使用基尔德盾作为我们的货币" 
+ law_yuan_currency_Decision_desc:0 "          使用元作为我们的货币" 
+ law_rupee_currency_Decision_desc:0 "          使用卢比作为我们的货币" 
+ law_yen_currency_Decision_desc:0 "          使用円作为我们的货币" 
+ law_peseta_currency_Decision_desc:0 "          使用比塞塔作为我们的货币" 
+ law_ottoman_lira_currency_Decision_desc:0 "          使用奥斯曼里拉作为我们的货币" 
+ law_ruble_currency_Decision_desc:0 "          使用卢布作为我们的货币" 
+ law_lira_currency_Decision_desc:0 "          使用里拉作为我们的货币" 
+ law_florin_currency_Decision_desc:0 "          使用佛罗林作为我们的货币" 
+ law_belgian_franc_currency_Decision_desc:0 "          使用比利时法郎作为我们的货币" 
+ law_swiss_franc_currency_Decision_desc:0 "          使用瑞士法郎作为我们的货币"
+ law_dinar_currency_Decision_desc:0 "          使用第纳尔作为我们的货币"
+ law_krone_currency_Decision_desc:0 "          使用克朗作为我们的货币"
+ law_leu_currency_Decision_desc:0 "          使用列伊作为我们的货币"
+ law_drachma_currency_Decision_desc:0 "          使用德拉克马作为我们的货币"
+ law_qiran_currency_Decision_desc:0 "          使用伊朗克兰作为我们的货币"
+ law_baht_currency_Decision_desc:0 "          使用泰铢作为我们的货币"
+ law_no_market_liquidity_currency_Decision_desc:0 "          重置货币法案 (如果遇到 bug)"
+
+ Open_Law_Monetary_policy_Decision_desc:0 "     货币政策变更法律"
+ Close_Law_Monetary_policy_Decision_desc:0 "     关闭货币政策变更法律"
+
+
+ Law_No_Monetary_Policy_Decision_desc:0 "          修改法律为无货币政策"
+ Law_Devaluation_policy_Decision_desc:0 "          修改法律为法定贬值政策"
+ Law_Revaluation_policy_Decision_desc:0 "          修改法律为法定升值政策"
+
+ Open_Stop_War_Economy_Mechanic_Decision_desc:0 "     从“日志”中移除“战时经济”事件"
+ Close_Stop_War_Economy_Mechanic_Decision_desc:0 "    从“日志”中添加“战时经济”事件"
+
+
+ central_bank_mouve_to_new_capital_desc:0 "迁移首都期间[concept_central_bank]再次建立"

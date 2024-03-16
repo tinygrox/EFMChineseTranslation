@@ -1,0 +1,150 @@
+﻿l_simp_chinese:
+
+ #BUILDING
+
+ concept_central_bank:0 "中央银行"
+ concept_central_bank_desc:0 "在19世纪，[concept_central_bank]一般被定义为以发行国家货币、调节[concept_money_supply]、监督金融体系和维护经济稳定为主要职责的经济机构。19世纪的[concept_central_bank]往往是为了满足对能够控制[concept_money_supply]和稳定经济体系的中央货币发行机构的需求而建立的。"
+
+ concept_financial_centre:0 "金融中心"
+ concept_financial_centre_desc:0 "在19世纪，[concept_financial_centre]是一个具有重要经济意义的地区，是银行、金融和商业活动的集中地。这些[concept_financial_centre]通常是银行机构、金融市场、公司和其他商业参与者的中心。"
+
+ concept_national_stockpile:0 "国家仓储"
+ concept_national_stockpile_desc:0 "“仓储”是指为满足未来需要或应对紧急情况而大量储存的物资储备，通常是货物、商品或资源。它也可以指在一段时间内积累的大量物品。"
+
+ #ECONOMY
+
+  #economic_policy:0 "Economic Policy"
+  #monetary_policy:0 "Monetary Policy"
+
+ concept_money_value:0 "货币价值"
+ concept_money_value_desc:0 "[concept_money_value]由[concept_national_stockpile]除以市场上发行和流通的货币总量（[concept_money_supply]）决定。如果减少本国货币的市场流通，货币价值就会增加；如果增加本国货币的市场流通，货币价值就会减少。同样如果增加货币发行，货币价值就会减少，反之减少发行，货币价值就会增加。"
+
+ concept_money_value_target_real:0 "黄金平价" #je pense que c'est le money valu ciblé
+ concept_money_value_target_real_desc:0 "黄金平价就是你期望国家货币对标的黄金价值"
+
+ concept_money_value_target_selection:0 "黄金平价"
+ concept_money_value_target_selection_desc:0 "黄金平价就是你期望国家货币对标的黄金价值"
+
+ concept_money_supply:0 "货币供应量"
+ concept_money_supply_desc:0 "货币供应量代表了在市场中流通的国家货币总量。"
+
+ concept_money_value_target:0 "黄金覆盖率"
+ concept_money_value_target_desc:0 "黄金覆盖率是为了实现[concept_money_value_target_real]，可以或必须发行的本国货币的最大数量。如果你的[concept_money_supply]超出了[concept_money_value_target]，月度货币供应量将会重置为 0 并且将无法储备更多的货币。此外，你的中央银行也会受到每月货币发行量 -1% 的惩罚，上限为-50%。受到的惩罚仅适用于“无货币政策”和“法定升值”的情况；如果你正处于“法定贬值政策”，此限制将不会生效，并且货币价值将会趋于 0。用人话来说就是，这个指标会让你希望你的货币价值维持在超过市场实际需求所允许的水平"
+
+ concept_money_value_target_with_reference_currency_selection:0 "基准货币平价"
+ concept_money_value_target_with_reference_currency_selection_desc:0 "De Rien(不客气)"
+
+ concept_inflation_value:0 "通货膨胀率"
+ concept_inflation_value_desc:0 "通货膨胀或通货紧缩是多个参数共同作用的结果，分别由年度自然通胀、市场价格、货币价值和货币增发产生的通胀。你可以通过对这些不同的参数采取行动来达到通货膨胀或通货紧缩。"
+
+ concept_national_capacity:0 "国家储备"
+ concept_national_capacity_desc:0 "国家储备代表国家拥有的黄金总量。它由[concept_gold_reserves]、[concept_central_bank_gold_reserves]和[concept_gold_balance]这几个因素决定的"
+
+ concept_devaluation:0 "法定贬值"
+ concept_devaluation_desc:0 "在19世纪，贬值通常被理解为一种经济行为，包括降低某种货币相对于基准货币（如另一种外国货币或货币锚定物如黄金或白银）的官方价值。你能够以 25%、50%、75% 或 100% 的贬值比例来控制你的货币贬值。这意味着你将按该百分比提高当前的货币发行量。同时货币发行通胀率将每隔 6 个月 +1、+2、+3 或 +4"
+
+ concept_revaluation:0 "法定升值"
+ concept_revaluation_desc:0 "在19世纪，升值是一种与贬值相对的经济行为，包括提高某种货币相对于基准货币（如另一种外国货币或货币锚定物如黄金或白银）的官方价值。你能够以 25%、50%、75% 或 100% 的升值比例来控制你的货币升值。这意味着你将按该百分比降低当前的货币发行量。同时货币发行通胀率将每隔 6 个月 -1、-2、-3 或 -4。"
+
+ concept_subject_currency_management:0 "附属国货币管理"
+ concept_subject_currency_management_desc:0 "附属国货币管理允许玩家管理自己与附属国货币之间的比例。默认情况下，宗主国货币价值是附属国的2 倍。"
+
+ concept_parity:0 "平价"
+ concept_parity_desc:0 "在19世纪，货币经济学中的“平价”指的是两种货币之间或货币与基准货币如黄金或白银之间的官方价值或固定比率。平价决定了货币相对于另一种货币或基准货币的价值。"
+
+ concept_central_bank_gold_reserves:0 "中央银行黄金储备"
+ concept_central_bank_gold_reserves_desc:0 "中央银行黄金储备是央行所持有的黄金，这些黄金存放在你的[concept_central_bank]中。这些黄金是国家货币的主要价值锚定。这些黄金位于你的[concept_central_bank]所在的位置，如果所在区域被敌对国家所吞并，你将失去这些黄金。这些黄金来源于你的市场中流通的黄金，每个与都会结余一部分，你市场中流通的黄金越多，央行黄金储备量就越多。附属国无法储备黄金。"
+
+ concept_gold_balance:0 "对外贸易黄金结余"
+ concept_gold_balance_desc:0 "对外贸易黄金结余指的是一个国家在和其他国家进行贸易时，黄金的净流入和净流出的结余情况。国家在采用金本位制或货币以黄金为支撑的情况下，贸易结余对于维持货币和黄金储备的稳定至关重要。"
+
+ concept_import_value:0 "进口成本(黄金结算)"
+ concept_import_value_desc:0 "进口成本(黄金结算)包含了你在国外市场购买的所有货物。你使用黄金而不是本国货币对这些货物进行结算(使用本国货币购买外国货物的现代概念可以追溯到 1970 年代的布雷顿森林体系的结束)。"
+
+ concept_export_value:0 "出口利润(黄金结算)"
+ concept_export_value_desc:0 "出口利润(黄金结算)包含了你在国外市场销售的所有货物。你使用黄金而不是本国货币对这些货物进行结算(使用本国货币购买外国货物的现代概念可以追溯到 1970 年代的布雷顿森林体系的结束)。"
+
+ concept_world_currency:0 "世界货币"
+ concept_world_currency_desc:0 "世界货币列表可以让你查看你的国家货币相对于其他世界货币的地位。"
+
+ concept_evolution_of_the_currency_value:0 "货币价值变动"
+ concept_evolution_of_the_currency_value_desc:0 "货币价值变动列表可以让你查看世界货币在1年、5年、10年间内的价值变动情况。(价值可能会存在偏差，需要5年和10年的游戏时间来矫正)"
+
+ concept_exchange_rate:0 "汇率"
+ concept_exchange_rate_desc:0 "在19世纪，货币之间的汇率通常是由基于金本位制的固定汇率体系决定的。这意味着国家货币的价值与一定数量的黄金挂钩。各国政府通常会用黄金为本国货币定价，从而确保了其可兑换性。"
+
+ concept_money_value_rapported_inflation:0 "通货膨胀报告"
+ concept_money_value_rapported_inflation_desc:0 "通货膨胀报告展示了你的货币价值因通货膨胀/通货紧缩而增加或减少的情况。这是货币汇率价值的关键。"
+
+ concept_international_economic_power:0 "国际经济实力"
+ concept_international_economic_power_desc:0 "国际经济实力是由国家储备最大的国家决定的。这意味着其拥有最多的货币储备，在国际市场上会非常稳固。这个值可以根据拥有最大国家能力的国家而进行修改。(根据你的玩法！)"
+
+ concept_monetary_policy:0 "货币政策"
+ concept_monetary_policy_desc:0 "货币政策是管理通货膨胀/通货紧缩的主要手段。货币政策还能增加或减少[concept_money_supply]，从而影响[concept_money_value]。它是实现[concept_money_value_target]的主要手段。"
+
+ concept_currency_reserves:0 "货币储备"
+ concept_currency_reserves_desc:0 "货币储备是指所拥有的外币总量，包括购买或是贸易获得。只有当外国希望从本国市场进口商品时，储备货币才会储备外汇。在这种情况下，外国在进口你的货物时，会使用其自身货币结算。如果你从其他市场处进口商品，同样的原理也适用；你的货币将会转移到那个国家。"
+
+
+ #FINANCIAL
+
+ concept_gdp_growth_rate:0 "GDP增长率"
+ concept_gdp_growth_rate_desc:0 "GDP 增长率列表可以让你查看各国的 GDP 在 1 年、5 年、10 年间内的变动情况。(价值可能会存在偏差，需要 5 年和 10 年的游戏时间来矫正)"
+
+ concept_gold_balance_by_country:0 "各国对外贸易黄金结余"
+ concept_gold_balance_by_country_desc:0 "对外贸易黄金结余指的是一个国家在和其他国家进行贸易时，黄金的净流入和净流出的结余情况。国家在采用金本位制或货币以黄金为支撑的情况下，贸易结余对于维持货币和黄金储备的稳定至关重要。"
+
+ concept_international_financial_power:0 "国际金融实力"
+ concept_international_financial_power_desc:0 "国际金融实力由其所有的金融产品的总市值决定。"
+
+ concept_stock_market_index:0 "股市市值"
+ concept_stock_market_index_desc:0 "股市市值代表特定行业的发行的所有股票/债券数量之和，再乘上它们的单价。"
+
+ concept_country_rating:0 "国家评级"
+ concept_country_rating_desc:0 "国家评级根据国家的 GDP、货币价值、通货膨胀率、威望、排名和生活水平进行评分。根据指定的评级，它将确定该国的利率阈值。国家可达到的利率不得低于评级确定的利率。"
+
+ concept_financial_product_bond:0 "金融产品 - 债券"
+ concept_financial_product_bond_desc:0 "国家总共持有的债券"
+
+ concept_foreign_investment:0 "外来投资"
+ concept_foreign_investment_desc:0 "外来投资可以让你购买其他国家的债券。你可以从黄金储备中拿出一定数量的黄金去购买，期限有 5 年或 10 年，作为回报，你将根据发行债券的国家的利率获得月利息。到期后，你将自动收回黄金。你最多可以进行高达5笔为期10年的投资或5笔为期5年的投资。对于玩家来说，你还可以自动申请外来投资，在这种情况下，其他国家将向你输送黄金，你为他们支付月利息。到期后你将归还所借的黄金。开启'申请国际资金'."
+
+ concept_financial_product_industrial:0 "金融产品 - 工业"
+ concept_financial_product_industrial_desc:0 "国家所持有的金融产品（股票）的总量"
+
+ #Stockpile
+
+ concept_flow_storage:0 "流动性存储"
+ concept_flow_storage_desc:0 "[concept_flow_storage]可以无成本存储市场的结余。与高成本的国家储备技术实现的进货和出货订单不一样。国家储备可能会耗费大量资金，但却能提供更好储备。"
+ 
+ #MARKET
+
+ concept_exchange_currency:0 "货币汇兑 (外汇)"
+ concept_exchange_currency_desc:0 "外汇交易允许你将本国货币兑换成外国货币。如果其他国家持有大量本国货币，则要小心，它可能会将本国货币大量抛售给本国中央银行，从而导致你的货币贬值。"
+
+ concept_r_m_s_a:0 "原材料供应协议 (R.M.S.A)"
+ concept_r_m_s_a_desc:0 "[concept_r_m_s_a]允许你使用其他国家的货币或黄金购买该国的原材料，如果你在国际市场上购买，则使用黄金结算。"
+
+ concept_m_e_s_a:0 "军事装备供应协议 (M.E.S.A.)"
+ concept_m_e_s_a_desc:0 "[concept_m_e_s_a]是一种许可证，允许你使用其他国家的货币购买该国的军事装备。"
+
+ concept_r_m_g_m:0 "原材料国际市场 (R.M.G.M)"
+ concept_r_m_g_m_desc:0 "[concept_r_m_g_m]可以让你根据国际经济实力货币的汇率在国际市场上以黄金结算购买原材料。 "
+
+ concept_bond_market_index:0 "债券市值"
+ concept_bond_market_index_desc:0 "债券市值是指债券产品的总数量乘上其单价"
+
+ concept_company_stock_index:0 "公司股份市值"
+ concept_company_stock_index_desc:0 "[concept_company_stock_index]为产品库存的数量乘上其单价"
+
+ concept_minting_stock_index:0 "矿业股份市值"
+ concept_minting_stock_index_desc:0 "[concept_minting_stock_index]为产品库存的数量乘上其单价"
+
+ concept_railroad_stock_index:0 "铁路股份市值"
+ concept_railroad_stock_index_desc:0 "[concept_railroad_stock_index]为产品库存的数量乘上其单价"
+
+ concept_short_term_monetary_policy:0 "小型货币政策调整"
+ concept_short_term_monetary_policy_desc:0 ""
+
+ concept_long_term_monetary_policy:0 "大型货币政策调整"
+ concept_long_term_monetary_policy_desc:0 "xxx"

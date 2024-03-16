@@ -1,0 +1,757 @@
+﻿l_simp_chinese:
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ # ███╗   ███╗ ██████╗ ███╗   ██╗███████╗██╗   ██╗    ██╗   ██╗ █████╗ ██╗     ██╗   ██╗███████╗
+ # ████╗ ████║██╔═══██╗████╗  ██║██╔════╝╚██╗ ██╔╝    ██║   ██║██╔══██╗██║     ██║   ██║██╔════╝
+ # ██╔████╔██║██║   ██║██╔██╗ ██║█████╗   ╚████╔╝     ██║   ██║███████║██║     ██║   ██║█████╗
+ # ██║╚██╔╝██║██║   ██║██║╚██╗██║██╔══╝    ╚██╔╝      ╚██╗ ██╔╝██╔══██║██║     ██║   ██║██╔══╝
+ # ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████╗   ██║███████╗╚████╔╝ ██║  ██║███████╗╚██████╔╝███████╗
+ # ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝╚══════╝ ╚═══╝  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝
+ #
+ # ███╗   ██╗ ██████╗          ██████╗  ██████╗ ██╗     ██████╗         ███████╗████████╗ █████╗ ███╗   ██╗██████╗  █████╗ ██████╗ ████████╗
+ # ████╗  ██║██╔═══██╗        ██╔════╝ ██╔═══██╗██║     ██╔══██╗        ██╔════╝╚══██╔══╝██╔══██╗████╗  ██║██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝
+ # ██╔██╗ ██║██║   ██║        ██║  ███╗██║   ██║██║     ██║  ██║        ███████╗   ██║   ███████║██╔██╗ ██║██║  ██║███████║██████╔╝   ██║
+ # ██║╚██╗██║██║   ██║        ██║   ██║██║   ██║██║     ██║  ██║        ╚════██║   ██║   ██╔══██║██║╚██╗██║██║  ██║██╔══██║██╔══██╗   ██║
+ # ██║ ╚████║╚██████╔╝███████╗╚██████╔╝╚██████╔╝███████╗██████╔╝███████╗███████║   ██║   ██║  ██║██║ ╚████║██████╔╝██║  ██║██║  ██║   ██║
+ # ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝ ╚═════╝  ╚═════╝ ╚══════╝╚═════╝ ╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ MONEY_VALUE_no_gold_standart:0 "#T 货币价值#!\n$MONEY_VALUE_INFOE_no_gold_standar$\n$MONEY_SUPPLY_DESCE_no_gold_standar$\n$NATIONAL_CAPACITY_DESCE_no_gold_standar$\n$MONEY_SUPPLY_MODIFIER$\n"
+
+ MONEY_VALUE_INFOE_no_gold_standar:0 "当前与通胀/通缩挂钩的指数：#T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value_rapported_inflation')]#! @gold!\n不含通胀/通缩的价值：#T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value')]#! @gold!\n金本位制设置:#T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value_target_real')]#! @gold!\n$TOOLTIP_DELIMITER$"
+
+ #money_supply
+ MONEY_SUPPLY_DESCE_no_gold_standar:0 "货币供应:\n#v 总共 #v #tooltippable #tooltip:MONEY_SUPPLY_TOOLTIPS $MONEY_SUPPLY$#!#!#! #p [Country.MakeScope.ScriptValue('total_money_supply')|D]#!#! [Country.GetCustom('currency_symbol')]\n - [Country.GetCustom('currency_name')] 国家持有: #T [Country.MakeScope.ScriptValue('money_supply')|D]#! [Country.GetCustom('currency_symbol')] (每月[Country.MakeScope.ScriptValue('money_supply_montly')|D+=][Country.GetCustom('currency_symbol')] )\n   > [Country.GetCustom('currency_name')] 在流通: #T [Country.MakeScope.ScriptValue('money_circulating')|D]#! [Country.GetCustom('currency_symbol')] (每月[Country.MakeScope.ScriptValue('money_circulating_monthly')|D+=][Country.GetCustom('currency_symbol')])\n   > [Country.GetCustom('currency_name')] 处于央行储备: #T [Country.MakeScope.ScriptValue('money_supply_state')|D]#! [Country.GetCustom('currency_symbol')]  (每月[Country.MakeScope.ScriptValue('money_supply_state_monthly')|D+=][Country.GetCustom('currency_symbol')])\n - [Country.GetCustom('currency_name')] 其他国家持有: #T [Country.MakeScope.ScriptValue('money_supply_stockpile_by_other_country')|D]#! [Country.GetCustom('currency_symbol')]\n$TOOLTIP_DELIMITER$"
+
+ #national_capacity
+ NATIONAL_CAPACITY_DESCE_no_gold_standar:0 "国家储备:\n#v 总共 #tooltippable #tooltip:NATIONAL_CAPACITY_TOOLTIPS $NATIONAL_CAPACITY$#!#!#!: [Country.MakeScope.ScriptValue('national_capacity')|D=+] @gold!\n - 国家黄金储备: [Country.MakeScope.ScriptValue('total_gold_reserves')|D=+] @gold! (每月[AccessPlayer.PredictWeeklyBalanceWithEconomyHealthHint] @gold!) \n - 央行黄金储备: [Country.MakeScope.ScriptValue('central_bank_gold_reserves_state')|D=+] @gold! (每月[Country.MakeScope.Var('stockpiling_central_bank_gold_reserves_var_2').GetValue|=+D] @gold!)\n - 贸易结余(以黄金结算): [Country.MakeScope.ScriptValue('gold_balance_scripted')|D=+] @gold! (每月[Country.MakeScope.ScriptValue('delta_value')|D=+] @gold!)\n$TOOLTIP_DELIMITER$"
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ # ███╗   ███╗ ██████╗ ███╗   ██╗███████╗██╗   ██╗    ██╗   ██╗ █████╗ ██╗     ██╗   ██╗███████╗     ██████╗  ██████╗ ██╗     ██████╗
+ # ████╗ ████║██╔═══██╗████╗  ██║██╔════╝╚██╗ ██╔╝    ██║   ██║██╔══██╗██║     ██║   ██║██╔════╝    ██╔════╝ ██╔═══██╗██║     ██╔══██╗
+ # ██╔████╔██║██║   ██║██╔██╗ ██║█████╗   ╚████╔╝     ██║   ██║███████║██║     ██║   ██║█████╗      ██║  ███╗██║   ██║██║     ██║  ██║
+ # ██║╚██╔╝██║██║   ██║██║╚██╗██║██╔══╝    ╚██╔╝      ╚██╗ ██╔╝██╔══██║██║     ██║   ██║██╔══╝      ██║   ██║██║   ██║██║     ██║  ██║
+ # ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████╗   ██║███████╗╚████╔╝ ██║  ██║███████╗╚██████╔╝███████╗    ╚██████╔╝╚██████╔╝███████╗██████╔╝
+ # ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝╚══════╝ ╚═══╝  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝     ╚═════╝  ╚═════╝ ╚══════╝╚═════╝
+ #
+ # ███████╗████████╗ █████╗ ███╗   ██╗██████╗  █████╗ ██████╗ ████████╗
+ # ██╔════╝╚══██╔══╝██╔══██╗████╗  ██║██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝
+ # ███████╗   ██║   ███████║██╔██╗ ██║██║  ██║███████║██████╔╝   ██║
+ # ╚════██║   ██║   ██╔══██║██║╚██╗██║██║  ██║██╔══██║██╔══██╗   ██║
+ # ███████║   ██║   ██║  ██║██║ ╚████║██████╔╝██║  ██║██║  ██║   ██║
+ # ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ MONEY_VALUE_gold_standard:0 "#T 货币价值#!\n$MONEY_VALUE_INFO_gold_standard$\n$MONEY_SUPPLY_DESC_gold_standard$\n$NATIONAL_CAPACITY_DESC_gold_standard$\n$MONEY_SUPPLY_MODIFIER$\n"
+
+ MONEY_VALUE_INFO_gold_standard:0 "当前与通胀/通缩挂钩的指数: #T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value_rapported_inflation')]#! @gold!\n不含通胀/通缩的价值：#T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value')]#! @gold!\n金本位制设置：#T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value_target_real')]#! @gold!\n货币供应量上限: #v [Country.MakeScope.ScriptValue('money_supply')|D] [Country.GetCustom('currency_symbol')] / [Country.MakeScope.ScriptValue('money_value_target')|D|]#! [Country.GetCustom('currency_symbol')]#! (For 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value_target_real')]#! @gold!)\n$TOOLTIP_DELIMITER$"
+
+ #money_supply
+ MONEY_SUPPLY_DESC_gold_standard:0 "货币供应:\n#v 总共#v #tooltippable #tooltip:MONEY_SUPPLY_TOOLTIPS $MONEY_SUPPLY$#!#!#! #p [Country.MakeScope.ScriptValue('total_money_supply')|D]#!#! [Country.GetCustom('currency_symbol')]\n - [Country.GetCustom('currency_name')] 国家持有: #T [Country.MakeScope.ScriptValue('money_supply')|D]#! [Country.GetCustom('currency_symbol')] (每月[Country.MakeScope.ScriptValue('money_supply_montly')|D+=][Country.GetCustom('currency_symbol')] )\n   > [Country.GetCustom('currency_name')] 在流通: #T [Country.MakeScope.ScriptValue('money_circulating')|D]#! [Country.GetCustom('currency_symbol')] (每月[Country.MakeScope.ScriptValue('money_circulating_monthly')|D+=][Country.GetCustom('currency_symbol')])\n   > [Country.GetCustom('currency_name')] 处于央行储备: #T [Country.MakeScope.ScriptValue('money_supply_state')|D]#! [Country.GetCustom('currency_symbol')]  (每月[Country.MakeScope.ScriptValue('money_supply_state_monthly')|D+=][Country.GetCustom('currency_symbol')])\n - [Country.GetCustom('currency_name')] 其他国家持有: #T [Country.MakeScope.ScriptValue('money_supply_stockpile_by_other_country')|D]#! [Country.GetCustom('currency_symbol')]\n$TOOLTIP_DELIMITER$"
+
+ #national_capacity
+ NATIONAL_CAPACITY_DESC_gold_standard:0 "国家储备:\n#v 总共#tooltippable #tooltip:NATIONAL_CAPACITY_TOOLTIPS $NATIONAL_CAPACITY$#!#!#!: [Country.MakeScope.ScriptValue('national_capacity')|D=+] @gold!\n - 国家黄金储备: [Country.MakeScope.ScriptValue('total_gold_reserves')|D=+] @gold! (每月[AccessPlayer.PredictWeeklyBalanceWithEconomyHealthHint] @gold!) \n - 央行黄金储备: [Country.MakeScope.ScriptValue('central_bank_gold_reserves_state')|D=+] @gold! (每月[Country.MakeScope.Var('stockpiling_central_bank_gold_reserves_var_2').GetValue|=+D] @gold!)\n - 贸易结余(以黄金结算): [Country.MakeScope.ScriptValue('gold_balance_scripted')|D=+] @gold! (每月[Country.MakeScope.ScriptValue('delta_value')|D=+] @gold!)\n$TOOLTIP_DELIMITER$"
+
+ # [Country.MakeScope.ScriptValue('money_value_target_real_below_10')|D]
+ # [Country.MakeScope.ScriptValue('money_value_target_real_above_10')|D]
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ # ███╗   ███╗ ██████╗ ███╗   ██╗███████╗██╗   ██╗    ██╗   ██╗ █████╗ ██╗     ██╗   ██╗███████╗     ██████╗  ██████╗ ██╗     ██████╗
+ # ████╗ ████║██╔═══██╗████╗  ██║██╔════╝╚██╗ ██╔╝    ██║   ██║██╔══██╗██║     ██║   ██║██╔════╝    ██╔════╝ ██╔═══██╗██║     ██╔══██╗
+ # ██╔████╔██║██║   ██║██╔██╗ ██║█████╗   ╚████╔╝     ██║   ██║███████║██║     ██║   ██║█████╗      ██║  ███╗██║   ██║██║     ██║  ██║
+ # ██║╚██╔╝██║██║   ██║██║╚██╗██║██╔══╝    ╚██╔╝      ╚██╗ ██╔╝██╔══██║██║     ██║   ██║██╔══╝      ██║   ██║██║   ██║██║     ██║  ██║
+ # ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████╗   ██║███████╗╚████╔╝ ██║  ██║███████╗╚██████╔╝███████╗    ╚██████╔╝╚██████╔╝███████╗██████╔╝
+ # ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝╚══════╝ ╚═══╝  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝     ╚═════╝  ╚═════╝ ╚══════╝╚═════╝
+ #
+ # ███████╗██╗  ██╗ ██████╗██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███████╗    ███████╗████████╗ █████╗ ███╗   ██╗██████╗  █████╗ ██████╗ ████████╗
+ # ██╔════╝╚██╗██╔╝██╔════╝██║  ██║██╔══██╗████╗  ██║██╔════╝ ██╔════╝    ██╔════╝╚══██╔══╝██╔══██╗████╗  ██║██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝
+ # █████╗   ╚███╔╝ ██║     ███████║███████║██╔██╗ ██║██║  ███╗█████╗      ███████╗   ██║   ███████║██╔██╗ ██║██║  ██║███████║██████╔╝   ██║
+ # ██╔══╝   ██╔██╗ ██║     ██╔══██║██╔══██║██║╚██╗██║██║   ██║██╔══╝      ╚════██║   ██║   ██╔══██║██║╚██╗██║██║  ██║██╔══██║██╔══██╗   ██║
+ # ███████╗██╔╝ ██╗╚██████╗██║  ██║██║  ██║██║ ╚████║╚██████╔╝███████╗    ███████║   ██║   ██║  ██║██║ ╚████║██████╔╝██║  ██║██║  ██║   ██║
+ # ╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝    ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ MONEY_VALUE_gold_exchange_standard:0 "#T 货币价值#!\n$MONEY_VALUE_INFO_MONEY_VALUE_gold_exchange_standard$\n$MONEY_SUPPLY_DESC_MONEY_VALUE_gold_exchange_standard$\n$NATIONAL_CAPACITY_DESC_MONEY_VALUE_gold_exchange_standard$\n$MONEY_SUPPLY_MODIFIER$\n"
+
+ MONEY_VALUE_INFO_MONEY_VALUE_gold_exchange_standard:0 "当前与通胀/通缩挂钩的指数: #T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value_rapported_inflation')]#! @gold!\n不含通胀/通缩的价值：#T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value')]#! @gold!\n相对基准货币国家通胀报告: #v [Country.GetCustom('currency_symbol')] = #b [GetPlayer.MakeScope.ScriptValue('money_value_exchange_rate_with_reference_currency')|D]#! [GetPlayer.GetCustom('global_monetary_reference_texture')]\n金本位制设置：#T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value_target_real')]#! @gold!\n货币供应量上限: #v [Country.MakeScope.ScriptValue('money_supply')|D] [Country.GetCustom('currency_symbol')] / [Country.MakeScope.ScriptValue('money_value_target')|D|]#! [Country.GetCustom('currency_symbol')]#! (对于 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value_target_real')]#! @gold!)\n$TOOLTIP_DELIMITER$"
+
+ #money_supply
+ MONEY_SUPPLY_DESC_MONEY_VALUE_gold_exchange_standard:0 "货币供应:\n#v 总共#v #tooltippable #tooltip:MONEY_SUPPLY_TOOLTIPS $MONEY_SUPPLY$#!#!#! #p [Country.MakeScope.ScriptValue('total_money_supply')|D]#!#! [Country.GetCustom('currency_symbol')]\n - [Country.GetCustom('currency_name')] 国家持有: #T [Country.MakeScope.ScriptValue('money_supply')|D]#! [Country.GetCustom('currency_symbol')] (每月[Country.MakeScope.ScriptValue('money_supply_montly')|D+=][Country.GetCustom('currency_symbol')])\n   > [Country.GetCustom('currency_name')] 在流通: #T [Country.MakeScope.ScriptValue('money_circulating')|D]#! [Country.GetCustom('currency_symbol')] (每月[Country.MakeScope.ScriptValue('money_circulating_monthly')|D+=][Country.GetCustom('currency_symbol')])\n   > [Country.GetCustom('currency_name')] 处于央行储备: #T [Country.MakeScope.ScriptValue('money_supply_state')|D]#! [Country.GetCustom('currency_symbol')]  (每月[Country.MakeScope.ScriptValue('money_supply_state_monthly')|D+=][Country.GetCustom('currency_symbol')])\n - [Country.GetCustom('currency_name')] 其他国家持有: #T [Country.MakeScope.ScriptValue('money_supply_stockpile_by_other_country')|D]#! [Country.GetCustom('currency_symbol')]\n$TOOLTIP_DELIMITER$"
+
+ #national_capacity
+ NATIONAL_CAPACITY_DESC_MONEY_VALUE_gold_exchange_standard:0 "国家储备:\n#v 总共#tooltippable #tooltip:NATIONAL_CAPACITY_TOOLTIPS $NATIONAL_CAPACITY$#!#!#!: [Country.MakeScope.ScriptValue('national_capacity')|D=+] @gold!\n - 国家黄金储备: [Country.MakeScope.ScriptValue('total_gold_reserves')|D=+] @gold! (每月[AccessPlayer.PredictWeeklyBalanceWithEconomyHealthHint] @gold!) \n - 央行黄金储备: [Country.MakeScope.ScriptValue('central_bank_gold_reserves_state')|D=+] @gold! (每月[Country.MakeScope.Var('stockpiling_central_bank_gold_reserves_var_2').GetValue|=+D] @gold!)\n - 贸易结余(以黄金结算): [Country.MakeScope.ScriptValue('gold_balance_scripted')|D=+] @gold! (每月[Country.MakeScope.ScriptValue('delta_value')|D=+] @gold!)\n - 基准货币持有: [Country.MakeScope.Var('reference_currency_owned_by_the_country_fixe').GetValue|+D]  [GetPlayer.GetCustom('global_monetary_reference_texture')] - [GetPlayer.GetCustom('global_monetary_reference_name')] [GetPlayer.GetCustom('global_monetary_reference_texture')]\n - 以黄金结算基准货币: [Country.MakeScope.Var('reference_currency_owned_by_the_country_in_gold_fixe').GetValue|+D] @gold!\n$TOOLTIP_DELIMITER$"
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ # ███╗   ███╗ ██████╗ ███╗   ██╗███████╗██╗   ██╗    ██╗   ██╗ █████╗ ██╗     ██╗   ██╗███████╗    ███████╗██╗   ██╗██████╗      ██╗███████╗ ██████╗████████╗
+ # ████╗ ████║██╔═══██╗████╗  ██║██╔════╝╚██╗ ██╔╝    ██║   ██║██╔══██╗██║     ██║   ██║██╔════╝    ██╔════╝██║   ██║██╔══██╗     ██║██╔════╝██╔════╝╚══██╔══╝
+ # ██╔████╔██║██║   ██║██╔██╗ ██║█████╗   ╚████╔╝     ██║   ██║███████║██║     ██║   ██║█████╗      ███████╗██║   ██║██████╔╝     ██║█████╗  ██║        ██║
+ # ██║╚██╔╝██║██║   ██║██║╚██╗██║██╔══╝    ╚██╔╝      ╚██╗ ██╔╝██╔══██║██║     ██║   ██║██╔══╝      ╚════██║██║   ██║██╔══██╗██   ██║██╔══╝  ██║        ██║
+ # ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████╗   ██║███████╗╚████╔╝ ██║  ██║███████╗╚██████╔╝███████╗    ███████║╚██████╔╝██████╔╝╚█████╔╝███████╗╚██████╗   ██║
+ # ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝╚══════╝ ╚═══╝  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝    ╚══════╝ ╚═════╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ MONEY_VALUE_subject:0 "#T 货币价值#!\n$MONEY_VALUE_INFO_MONEY_VALUE_subject$\n$MONEY_SUPPLY_DESC_MONEY_VALUE_subject$\n$NATIONAL_CAPACITY_DESC_MONEY_VALUE_subject$\n"
+
+ MONEY_VALUE_INFO_MONEY_VALUE_subject:0 "当前与通胀/通缩挂钩的指数: #T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value_rapported_inflation')]#! @gold!\n不含通胀/通缩的价值：#T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value')]#! @gold!\n相对于宗主国货币价值报告：#T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value_raported_to_overrlord')]#! [Country.GetCustom('overlord_currency_symbol')]\n金本位制设置：#T 1 [Country.GetCustom('currency_symbol')]#! = #T [Country.MakeScope.ScriptValue('money_value_target_real')]#! @gold!\n$TOOLTIP_DELIMITER$"
+
+ #money_supply
+ MONEY_SUPPLY_DESC_MONEY_VALUE_subject:0 "货币供应:\n#v 总共#v #tooltippable #tooltip:MONEY_SUPPLY_TOOLTIPS $MONEY_SUPPLY$#!#!#! #p [Country.MakeScope.ScriptValue('total_money_supply')|D]#!#! [Country.GetCustom('currency_symbol')]\n - [Country.GetCustom('currency_name')] 国家持有: #T [Country.MakeScope.ScriptValue('money_supply')|D]#! [Country.GetCustom('currency_symbol')] (每月[Country.MakeScope.ScriptValue('money_supply_montly')|D+=][Country.GetCustom('currency_symbol')])\n   > [Country.GetCustom('currency_name')] 在流通: #T [Country.MakeScope.ScriptValue('money_circulating')|D]#! [Country.GetCustom('currency_symbol')] (每月[Country.MakeScope.ScriptValue('money_circulating_monthly')|D+=][Country.GetCustom('currency_symbol')])\n   > [Country.GetCustom('currency_name')] 处于央行储备: #T [Country.MakeScope.ScriptValue('money_supply_state')|D]#! [Country.GetCustom('currency_symbol')]  (每月[Country.MakeScope.ScriptValue('money_supply_state_monthly')|D+=][Country.GetCustom('currency_symbol')])\n - [Country.GetCustom('currency_name')] 其他国家持有: #T [Country.MakeScope.ScriptValue('money_supply_stockpile_by_other_country')|D]#! [Country.GetCustom('currency_symbol')]\n$TOOLTIP_DELIMITER$"
+
+ #national_capacity
+ NATIONAL_CAPACITY_DESC_MONEY_VALUE_subject:0 "国家储备:\n#v 总共#tooltippable #tooltip:NATIONAL_CAPACITY_TOOLTIPS $NATIONAL_CAPACITY$#!#!#!: [Country.MakeScope.ScriptValue('national_capacity')|D=+] @gold!\n - 国家黄金储备: [Country.MakeScope.ScriptValue('total_gold_reserves')|D=+] @gold! (每月[AccessPlayer.PredictWeeklyBalanceWithEconomyHealthHint] @gold!) \n - 央行黄金储备: [Country.MakeScope.ScriptValue('central_bank_gold_reserves_state')|D=+] @gold! (每月[Country.MakeScope.Var('stockpiling_central_bank_gold_reserves_var_2').GetValue|=+D] @gold!)\n - 贸易结余(以黄金结算): [Country.MakeScope.ScriptValue('gold_balance_scripted')|D=+] @gold! (每月[Country.MakeScope.ScriptValue('delta_value')|D=+] @gold!)\n$TOOLTIP_DELIMITER$"
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ #  ██████╗ ████████╗██╗  ██╗███████╗██████╗ 
+ # ██╔═══██╗╚══██╔══╝██║  ██║██╔════╝██╔══██╗
+ # ██║   ██║   ██║   ███████║█████╗  ██████╔╝
+ # ██║   ██║   ██║   ██╔══██║██╔══╝  ██╔══██╗
+ # ╚██████╔╝   ██║   ██║  ██║███████╗██║  ██║
+ #  ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ MONEY_SUPPLY_MODIFIER:0 "效果:\n[GetScriptedGui('modifier_currency_value').ExecuteTooltip( GuiScope.SetRoot(Country.MakeScope).End)]"
+
+ MONEY_SUPPLY:0 "货币供应"
+ MONEY_SUPPLY_TOOLTIPS:0 "货币供应:\n#v 总货币供应量 #p [Country.MakeScope.ScriptValue('total_money_supply')|D]#!#! [Country.GetCustom('currency_symbol')]\n#v - [Country.GetCustom('currency_name')] 国家持有: [Country.MakeScope.ScriptValue('money_supply')|D]#! [Country.GetCustom('currency_symbol')] (每月[Country.MakeScope.ScriptValue('money_supply_montly')|D+=][Country.GetCustom('currency_symbol')])\n#v   > [Country.GetCustom('currency_name')] 在流通: [Country.MakeScope.ScriptValue('money_circulating')|D]#! [Country.GetCustom('currency_symbol')] (每月[Country.MakeScope.ScriptValue('money_circulating_monthly')|D+=][Country.GetCustom('currency_symbol')])\n#v   > [Country.GetCustom('currency_name')] 处于央行储备: [Country.MakeScope.ScriptValue('money_supply_state')|D]#! [Country.GetCustom('currency_symbol')]  (每月[Country.MakeScope.ScriptValue('money_supply_state_monthly')|D+=][Country.GetCustom('currency_symbol')])\n#v - [Country.GetCustom('currency_name')] 其他国家持有: [Country.MakeScope.ScriptValue('money_supply_stockpile_by_other_country')|D]#! [Country.GetCustom('currency_symbol')]\n"
+
+ NATIONAL_CAPACITY:0 "国家储备"
+ NATIONAL_CAPACITY_TOOLTIPS:0 "总共#v #tooltippable #tooltip:NATIONAL_CAPACITY_TOOLTIPS $NATIONAL_CAPACITY$#!#!#! [Country.MakeScope.ScriptValue('national_capacity')|D=+] @gold!\n#v - 国家黄金储备:#! [Country.MakeScope.ScriptValue('total_gold_reserves')|D=+] @gold!\n#v - 央行黄金储备:#! [Country.MakeScope.ScriptValue('central_bank_gold_reserves_state')|D=+] @gold! (每月[Country.MakeScope.Var('stockpiling_central_bank_gold_reserves_var_2').GetValue|=+D] @gold!)\n#v - 贸易结余(以黄金结算):#! [Country.MakeScope.ScriptValue('gold_balance_scripted')|D=+] @gold! (每月[Country.MakeScope.ScriptValue('gold_balance_scripted')|D=+] @gold!)\n$TOOLTIP_DELIMITER$"
+
+ OTHER_INFO_DESC:0 "其他信息:\n#v 年自然通胀率:#! [Country.MakeScope.Var('years_natural_inflation').GetValue|=+D] (倍)\nhalf_year_insufficient_currency_production: [Country.MakeScope.Var('half_year_insufficient_currency_production').GetValue|=+D] (倍)\nhalf_year_sufficient_currency_production: [Country.MakeScope.Var('half_year_sufficient_currency_production').GetValue|=+D] (倍)\nhmoney_value_target_1: [Country.MakeScope.Var('money_value_target_1').GetValue] (倍)\n$TOOLTIP_DELIMITER$"
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ # ██╗███╗   ██╗███████╗██╗      █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+ # ██║████╗  ██║██╔════╝██║     ██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+ # ██║██╔██╗ ██║█████╗  ██║     ███████║   ██║   ██║██║   ██║██╔██╗ ██║
+ # ██║██║╚██╗██║██╔══╝  ██║     ██╔══██║   ██║   ██║██║   ██║██║╚██╗██║
+ # ██║██║ ╚████║██║     ███████╗██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
+ # ╚═╝╚═╝  ╚═══╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ #INFLATION_Interface
+
+ INFLATION_TITLE:0 "@inflation!#T 通胀和通缩#!\n$INFLATION_BALANCE$\n$INFLATION_DESC$"
+ INFLATION_BALANCE:0 "当前：#n [Country.MakeScope.ScriptValue('inflation_value')|%|=-]#!\n$TOOLTIP_DELIMITER$\n来自#v 年自然通胀率#! [Country.MakeScope.ScriptValue('annual_natural_inflation')|%|=-]\n来自#v 市场价格#! [Country.MakeScope.ScriptValue('inflation_market_3')|%|=-]\n来自#v 货币价值#! [Country.MakeScope.ScriptValue('currency_inflation_based_on_currency')|%|=-]\n来自#v 铸币导致的通胀#! [Country.MakeScope.ScriptValue('inflation_value_base_on_minting')|%|=-]\n$INFLATION_MODIFIER$"
+ INFLATION_MODIFIER:0 "当前(高于#N 5%#!或低于#P -5%#!)效果:\n[GetScriptedGui('modifier_inflation').ExecuteTooltip( GuiScope.SetRoot(Country.MakeScope).End)]"
+
+ INFLATION_DESC:0 "通胀/通缩情况是由一系列因素共同决定的：年自然通胀率、市场价格、货币价值和货币发行量。你可以通过控制这些因素来影响通胀通缩情况。"
+
+ #other_Interface
+
+ GUI_UNEMPLOYED:0 "#variable 失业率#!\n#variable [State.GetNumUnemployedWorkingAdults|D]#!（#variable [State.MakeScope.ScriptValue('unemployment_rate')|0|%]#!）"
+
+ TOOLTIP_BUILDING_RECLAIM:0 "#header 填海进度#!@agriculture_residence! [Building.MakeScope.ScriptValue('reclaim_value')|V|0] / #maximum [Building.MakeScope.ScriptValue('reclaim_maximum_value')|0]#!:\n$TOOLTIP_DELIMITER$\n当进度完成时，可获得一块可耕土地。填海工程进度由$peasants$、土地制度和$modifier_building_group_bg_agriculture_throughput_mult$决定。 $law_serfdom$会降低#N 50%#!的填海进度"
+
+ BUILDING_RECLAIM:0 "@agriculture_residence!填海：[Building.MakeScope.ScriptValue('reclaim_value')|V|0]"
+ FUNDING_INTEREST_REDUCE_EFFECT:0 "#header 减少#!\n$TOOLTIP_DELIMITER$\n#instruction 点击减少#V 10%#!"
+ FUNDING_INCREASE_EFFECT:0 "#header 提升#!\n$TOOLTIP_DELIMITER$\n#instruction 点击提升#V 10%#!"
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ # ████████╗██╗████████╗██╗     ███████╗
+ # ╚══██╔══╝██║╚══██╔══╝██║     ██╔════╝
+ #    ██║   ██║   ██║   ██║     █████╗
+ #    ██║   ██║   ██║   ██║     ██╔══╝
+ #    ██║   ██║   ██║   ███████╗███████╗
+ #    ╚═╝   ╚═╝   ╚═╝   ╚══════╝╚══════╝
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ #name
+
+ inflation_country:0 "通胀率"
+ deflation_country:0 "通缩率"
+ mintage_rate:0 "铸币率"
+
+ weak_currency:0 "货币贬值"
+ normal_currency:0 "货币正常"
+ strong_currency:0 "货币增值"
+
+ #modifier
+
+ modifier_country_inflation_rate_add:0 "每月通货膨胀率上升"
+ modifier_country_currency_inflation_rate_add:0 "每月基于币值的通货膨胀率上升"
+
+ #gui
+
+ #5.11
+ BUDGET_GOVERNMENT_EXPENSES:0 "政府支出"
+ NATIONAL_BALANCE:0 "财政结余"
+ #
+ VO_TUTORIAL_FUNDING_EFFECT:0 "效果:\n[GetScriptedGui('vo_university_provide_funding_gui').ExecuteTooltip( GuiScope.SetRoot(Building.MakeScope).End)]\n$TOOLTIP_DELIMITER$\n当科学家在研究中取得突破时，资金就会耗尽。"
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ buy_bond_10Y_custom_tooltip:0 "#T 购买10年期债券#!\n所选国家拥有[GetPlayer.MakeScope.Var('bond_quantity').GetValue|D]@bond!\n你所拥有超过了[Market.GetOwner.MakeScope.ScriptValue('price_bond_in_gold')|=+D]@gold!\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_bond_5Y_custom_tooltip:0 "#T 购买5年期债券#!\n所选国家拥有[GetPlayer.MakeScope.Var('bond_quantity').GetValue|D]@bond!\n你所拥有超过了[Market.GetOwner.MakeScope.ScriptValue('price_bond_in_gold')|=+D]@gold!\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ xxxxxxxxxxxxx_in_gold:0 "#T 将外币兑换为黄金#!"
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+ #grain
+ buy_grain_custom_tooltip:0 "#T 购买@grain!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_grain_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的谷物@grain!\n所选国家拥有超过[GetPlayer.MakeScope.Var('grain_market_panel_quantity').GetValue|D]的谷物@grain!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_grain_custom_tooltip:0 "#T 销售@grain!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_grain_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的谷物@grain!\n你拥有多于[GetPlayer.MakeScope.Var('grain_market_panel_quantity').GetValue|D]的谷物@grain!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_grain_in_gold_custom_tooltip:0 "#T 购买@grain!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_grain_in_gold_market_panel')|D] @gold!\n你拥有少于10M的grain@grain!\n所选国家拥有超过[GetPlayer.MakeScope.Var('grain_market_panel_quantity').GetValue|D]的谷物@grain!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_grain_in_gold_custom_tooltip:0 "#T 销售@grain!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_grain_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的谷物@grain!\n你拥有多于[GetPlayer.MakeScope.Var('grain_market_panel_quantity').GetValue|D]的谷物@grain!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #wood
+ buy_wood_custom_tooltip:0 "#T 购买@wood!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_wood_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的木材@wood!\n所选国家拥有超过[GetPlayer.MakeScope.Var('wood_market_panel_quantity').GetValue|D]的木材@wood!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_wood_custom_tooltip:0 "#T 销售@wood!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_wood_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的的木材@wood!\n你拥有多于[GetPlayer.MakeScope.Var('wood_market_panel_quantity').GetValue|D]的木材@wood!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_wood_in_gold_custom_tooltip:0 "#T 购买@wood!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_wood_in_gold_market_panel')|D] @gold!\n你拥有少于10M的木材@wood!\n所选国家拥有超过[GetPlayer.MakeScope.Var('wood_market_panel_quantity').GetValue|D]的木材@wood!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_wood_in_gold_custom_tooltip:0 "#T 销售@wood!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_wood_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的的木材@wood!\n你拥有多于[GetPlayer.MakeScope.Var('wood_market_panel_quantity').GetValue|D]的木材@wood!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #coal
+ buy_coal_custom_tooltip:0 "#T 购买@coal!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_coal_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的煤炭@coal!\n所选国家拥有超过[GetPlayer.MakeScope.Var('coal_market_panel_quantity').GetValue|D]煤炭@coal!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_coal_custom_tooltip:0 "#T 销售@coal!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_coal_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的煤炭@coal!\n你拥有多于[GetPlayer.MakeScope.Var('coal_market_panel_quantity').GetValue|D]煤炭@coal!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_coal_in_gold_custom_tooltip:0 "#T 购买@coal!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_coal_in_gold_market_panel')|D] @gold!\n你拥有少于10M的coal@coal!\n所选国家拥有超过[GetPlayer.MakeScope.Var('coal_market_panel_quantity').GetValue|D]煤炭@coal!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_coal_in_gold_custom_tooltip:0 "#T 销售@coal!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_coal_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的煤炭@coal!\n你拥有多于[GetPlayer.MakeScope.Var('coal_market_panel_quantity').GetValue|D]煤炭@coal!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #iron
+ buy_iron_custom_tooltip:0 "#T 购买@iron!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_iron_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的铁@iron!\n所选国家拥有超过[GetPlayer.MakeScope.Var('iron_market_panel_quantity').GetValue|D]铁@iron!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_iron_custom_tooltip:0 "#T 销售@iron!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_iron_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的铁@iron!\n你拥有多于[GetPlayer.MakeScope.Var('iron_market_panel_quantity').GetValue|D]铁@iron!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_iron_in_gold_custom_tooltip:0 "#T 购买@iron!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_iron_in_gold_market_panel')|D] @gold!\n你拥有少于10M的铁@iron!\n所选国家拥有超过[GetPlayer.MakeScope.Var('iron_market_panel_quantity').GetValue|D]铁@iron!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_iron_in_gold_custom_tooltip:0 "#T 销售@iron!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_iron_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的铁@iron!\n你拥有多于[GetPlayer.MakeScope.Var('iron_market_panel_quantity').GetValue|D]铁@iron!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #sulfur
+ buy_sulfur_custom_tooltip:0 "#T 购买@sulfur!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_sulfur_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的硫磺@sulfur!\n所选国家拥有超过[GetPlayer.MakeScope.Var('sulfur_market_panel_quantity').GetValue|D]硫磺@sulfur!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_sulfur_custom_tooltip:0 "#T 销售@sulfur!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_sulfur_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的硫磺@sulfur!\n你拥有多于[GetPlayer.MakeScope.Var('sulfur_market_panel_quantity').GetValue|D]硫磺@sulfur!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_sulfur_in_gold_custom_tooltip:0 "#T 购买@sulfur!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_sulfur_in_gold_market_panel')|D] @gold!\n你拥有少于10M的硫磺@sulfur!\n所选国家拥有超过[GetPlayer.MakeScope.Var('sulfur_market_panel_quantity').GetValue|D]硫磺@sulfur!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_sulfur_in_gold_custom_tooltip:0 "#T 销售@sulfur!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_sulfur_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的硫磺@sulfur!\n你拥有多于[GetPlayer.MakeScope.Var('sulfur_market_panel_quantity').GetValue|D]硫磺@sulfur!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #lead
+ buy_lead_custom_tooltip:0 "#T 购买@lead!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_lead_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的铅@lead!\n所选国家拥有超过[GetPlayer.MakeScope.Var('lead_market_panel_quantity').GetValue|D]铅@lead!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_lead_custom_tooltip:0 "#T 销售@lead!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_lead_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的铅@lead!\n你拥有多于[GetPlayer.MakeScope.Var('lead_market_panel_quantity').GetValue|D]铅@lead!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_lead_in_gold_custom_tooltip:0 "#T 购买@lead!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_lead_in_gold_market_panel')|D] @gold!\n你拥有少于10M的铅@lead!\n所选国家拥有超过[GetPlayer.MakeScope.Var('lead_market_panel_quantity').GetValue|D]铅@lead!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_lead_in_gold_custom_tooltip:0 "#T 销售@lead!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_lead_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的铅@lead!\n你拥有多于[GetPlayer.MakeScope.Var('lead_market_panel_quantity').GetValue|D]铅@lead!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #oil
+ buy_oil_custom_tooltip:0 "#T 购买@oil!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_oil_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的油@oil!\n所选国家拥有超过[GetPlayer.MakeScope.Var('oil_market_panel_quantity').GetValue|D]油@oil!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_oil_custom_tooltip:0 "#T 销售@oil!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_oil_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的油@oil!\n你拥有多于[GetPlayer.MakeScope.Var('oil_market_panel_quantity').GetValue|D]油@oil!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_oil_in_gold_custom_tooltip:0 "#T 购买@oil!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_oil_in_gold_market_panel')|D] @gold!\n你拥有少于10M的油@oil!\n所选国家拥有超过[GetPlayer.MakeScope.Var('oil_market_panel_quantity').GetValue|D]油@oil!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_oil_in_gold_custom_tooltip:0 "#T 销售@oil!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_oil_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的油@oil!\n你拥有多于[GetPlayer.MakeScope.Var('oil_market_panel_quantity').GetValue|D]油@oil!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #dye
+ buy_dye_custom_tooltip:0 "#T 购买@dye!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_dye_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的染料@dye!\n所选国家拥有超过[GetPlayer.MakeScope.Var('dye_market_panel_quantity').GetValue|D]染料@dye!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_dye_custom_tooltip:0 "#T 销售@dye!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_dye_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的染料@dye!\n你拥有多于[GetPlayer.MakeScope.Var('dye_market_panel_quantity').GetValue|D]染料@dye!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_dye_in_gold_custom_tooltip:0 "#T 购买@dye!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_dye_in_gold_market_panel')|D] @gold!\n你拥有少于10M的染料@dye!\n所选国家拥有超过[GetPlayer.MakeScope.Var('dye_market_panel_quantity').GetValue|D]染料@dye!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_dye_in_gold_custom_tooltip:0 "#T 销售@dye!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_dye_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的染料@dye!\n你拥有多于[GetPlayer.MakeScope.Var('dye_market_panel_quantity').GetValue|D]染料@dye!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #silk
+ buy_silk_custom_tooltip:0 "#T 购买@silk!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_silk_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的丝绸@silk!\n所选国家拥有超过[GetPlayer.MakeScope.Var('silk_market_panel_quantity').GetValue|D]丝绸@silk!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_silk_custom_tooltip:0 "#T 销售@silk!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_silk_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的丝绸@silk!\n你拥有多于[GetPlayer.MakeScope.Var('silk_market_panel_quantity').GetValue|D]丝绸@silk!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_silk_in_gold_custom_tooltip:0 "#T 购买@silk!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_silk_in_gold_market_panel')|D] @gold!\n你拥有少于10M的丝绸@silk!\n所选国家拥有超过[GetPlayer.MakeScope.Var('silk_market_panel_quantity').GetValue|D]丝绸@silk!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_silk_in_gold_custom_tooltip:0 "#T 销售@silk!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_silk_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的丝绸@silk!\n你拥有多于[GetPlayer.MakeScope.Var('silk_market_panel_quantity').GetValue|D]丝绸@silk!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #rubber
+ buy_rubber_custom_tooltip:0 "#T 购买@rubber!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_rubber_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的橡胶@rubber!\n所选国家拥有超过[GetPlayer.MakeScope.Var('rubber_market_panel_quantity').GetValue|D]橡胶@rubber!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_rubber_custom_tooltip:0 "#T 销售@rubber!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_rubber_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的橡胶@rubber!\n你拥有多于[GetPlayer.MakeScope.Var('rubber_market_panel_quantity').GetValue|D]橡胶@rubber!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_rubber_in_gold_custom_tooltip:0 "#T 购买@rubber!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_rubber_in_gold_market_panel')|D] @gold!\n你拥有少于10M的橡胶@rubber!\n所选国家拥有超过[GetPlayer.MakeScope.Var('rubber_market_panel_quantity').GetValue|D]橡胶@rubber!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_rubber_in_gold_custom_tooltip:0 "#T 销售@rubber!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_rubber_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的橡胶@rubber!\n你拥有多于[GetPlayer.MakeScope.Var('rubber_market_panel_quantity').GetValue|D]橡胶@rubber!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #ammunition
+ buy_ammunition_custom_tooltip:0 "#T 购买@ammunition!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_ammunition_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的弹药@ammunition!\n所选国家拥有超过[GetPlayer.MakeScope.Var('ammunition_market_panel_quantity').GetValue|D]弹药@ammunition!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_ammunition_custom_tooltip:0 "#T 销售@ammunition!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_ammunition_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的弹药@ammunition!\n你拥有多于[GetPlayer.MakeScope.Var('ammunition_market_panel_quantity').GetValue|D]弹药@ammunition!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_ammunition_in_gold_custom_tooltip:0 "#T 购买@ammunition!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_ammunition_in_gold_market_panel')|D] @gold!\n你拥有少于10M的弹药@ammunition!\n所选国家拥有超过[GetPlayer.MakeScope.Var('ammunition_market_panel_quantity').GetValue|D]弹药@ammunition!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_ammunition_in_gold_custom_tooltip:0 "#T 销售@ammunition!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_ammunition_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的弹药@ammunition!\n你拥有多于[GetPlayer.MakeScope.Var('ammunition_market_panel_quantity').GetValue|D]弹药@ammunition!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #small_arms
+ buy_small_arms_custom_tooltip:0 "#T 购买@small_arms!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_small_arms_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的轻武器@small_arms!\n所选国家拥有超过[GetPlayer.MakeScope.Var('small_arms_market_panel_quantity').GetValue|D]轻武器@small_arms!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_small_arms_custom_tooltip:0 "#T 销售@small_arms!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_small_arms_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的轻武器@small_arms!\n你拥有多于[GetPlayer.MakeScope.Var('small_arms_market_panel_quantity').GetValue|D]轻武器@small_arms!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_small_arms_in_gold_custom_tooltip:0 "#T 购买@small_arms!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_small_arms_in_gold_market_panel')|D] @gold!\n你拥有少于10M的轻武器@small_arms!\n所选国家拥有超过[GetPlayer.MakeScope.Var('small_arms_market_panel_quantity').GetValue|D]轻武器@small_arms!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_small_arms_in_gold_custom_tooltip:0 "#T 销售@small_arms!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_small_arms_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的轻武器@small_arms!\n你拥有多于[GetPlayer.MakeScope.Var('small_arms_market_panel_quantity').GetValue|D]轻武器@small_arms!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #artillery
+ buy_artillery_custom_tooltip:0 "#T 购买@artillery!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_artillery_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的火炮@artillery!\n所选国家拥有超过[GetPlayer.MakeScope.Var('artillery_market_panel_quantity').GetValue|D]火炮@artillery!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_artillery_custom_tooltip:0 "#T 销售@artillery!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_artillery_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的火炮@artillery!\n你拥有多于[GetPlayer.MakeScope.Var('artillery_market_panel_quantity').GetValue|D]火炮@artillery!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_artillery_in_gold_custom_tooltip:0 "#T 购买@artillery!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_artillery_in_gold_market_panel')|D] @gold!\n你拥有少于10M的火炮@artillery!\n所选国家拥有超过[GetPlayer.MakeScope.Var('artillery_market_panel_quantity').GetValue|D]火炮@artillery!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_artillery_in_gold_custom_tooltip:0 "#T 销售@artillery!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_artillery_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的火炮@artillery!\n你拥有多于[GetPlayer.MakeScope.Var('artillery_market_panel_quantity').GetValue|D]火炮@artillery!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #tanks
+ buy_tanks_custom_tooltip:0 "#T 购买@tanks!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_tanks_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的坦克@tanks!\n所选国家拥有超过[GetPlayer.MakeScope.Var('tanks_market_panel_quantity').GetValue|D]坦克@tanks!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_tanks_custom_tooltip:0 "#T 销售@tanks!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_tanks_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的坦克@tanks!\n你拥有多于[GetPlayer.MakeScope.Var('tanks_market_panel_quantity').GetValue|D]坦克@tanks!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_tanks_in_gold_custom_tooltip:0 "#T 购买@tanks!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_tanks_in_gold_market_panel')|D] @gold!\n你拥有少于10M的坦克@tanks!\n所选国家拥有超过[GetPlayer.MakeScope.Var('tanks_market_panel_quantity').GetValue|D]坦克@tanks!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_tanks_in_gold_custom_tooltip:0 "#T 销售@tanks!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_tanks_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的坦克@tanks!\n你拥有多于[GetPlayer.MakeScope.Var('tanks_market_panel_quantity').GetValue|D]坦克@tanks!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #aeroplanes
+ buy_aeroplanes_custom_tooltip:0 "#T 购买@aeroplanes!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_aeroplanes_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的飞机@aeroplanes!\n所选国家拥有超过[GetPlayer.MakeScope.Var('aeroplanes_market_panel_quantity').GetValue|D]飞机@aeroplanes!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_aeroplanes_custom_tooltip:0 "#T 销售@aeroplanes!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_aeroplanes_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的飞机@aeroplanes!\n你拥有多于[GetPlayer.MakeScope.Var('aeroplanes_market_panel_quantity').GetValue|D]飞机@aeroplanes!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_aeroplanes_in_gold_custom_tooltip:0 "#T 购买@aeroplanes!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_aeroplanes_in_gold_market_panel')|D] @gold!\n你拥有少于10M的飞机@aeroplanes!\n所选国家拥有超过[GetPlayer.MakeScope.Var('aeroplanes_market_panel_quantity').GetValue|D]飞机@aeroplanes!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_aeroplanes_in_gold_custom_tooltip:0 "#T 销售@aeroplanes!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_aeroplanes_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的飞机@aeroplanes!\n你拥有多于[GetPlayer.MakeScope.Var('aeroplanes_market_panel_quantity').GetValue|D]飞机@aeroplanes!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #manowars
+ buy_manowars_custom_tooltip:0 "#T 购买@manowars!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_manowars_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的风帆战舰@manowars!\n所选国家拥有超过[GetPlayer.MakeScope.Var('manowars_market_panel_quantity').GetValue|D]风帆战舰@manowars!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_manowars_custom_tooltip:0 "#T 销售@manowars!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_manowars_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的风帆战舰@manowars!\n你拥有多于[GetPlayer.MakeScope.Var('manowars_market_panel_quantity').GetValue|D]风帆战舰@manowars!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_manowars_in_gold_custom_tooltip:0 "#T 购买@manowars!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_manowars_in_gold_market_panel')|D] @gold!\n你拥有少于10M的风帆战舰@manowars!\n所选国家拥有超过[GetPlayer.MakeScope.Var('manowars_market_panel_quantity').GetValue|D]风帆战舰@manowars!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_manowars_in_gold_custom_tooltip:0 "#T 销售@manowars!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_manowars_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的风帆战舰@manowars!\n你拥有多于[GetPlayer.MakeScope.Var('manowars_market_panel_quantity').GetValue|D]风帆战舰@manowars!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #ironclads
+ buy_ironclads_custom_tooltip:0 "#T 购买@ironclads!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_ironclads_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n你拥有少于10M的铁甲舰@ironclads!\n所选国家拥有超过[GetPlayer.MakeScope.Var('ironclads_market_panel_quantity').GetValue|D]铁甲舰@ironclads!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_ironclads_custom_tooltip:0 "#T 销售@ironclads!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_ironclads_market_panel')|D] [Market.GetOwner.GetCustom('currency_good')]\n所选国家拥有少于10M的铁甲舰@ironclads!\n你拥有多于[GetPlayer.MakeScope.Var('ironclads_market_panel_quantity').GetValue|D]铁甲舰@ironclads!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ buy_ironclads_in_gold_custom_tooltip:0 "#T 购买@ironclads!#!\n你拥有多于[Market.GetOwner.MakeScope.ScriptValue('buy_ironclads_in_gold_market_panel')|D] @gold!\n你拥有少于10M的铁甲舰@ironclads!\n所选国家拥有超过[GetPlayer.MakeScope.Var('ironclads_market_panel_quantity').GetValue|D]铁甲舰@ironclads!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+ sell_ironclads_in_gold_custom_tooltip:0 "#T 销售@ironclads!#!\n所选国家拥有超过[Market.GetOwner.MakeScope.ScriptValue('sell_ironclads_in_gold_market_panel')|D] @gold!\n所选国家拥有少于10M的铁甲舰@ironclads!\n你拥有多于[GetPlayer.MakeScope.Var('ironclads_market_panel_quantity').GetValue|D]铁甲舰@ironclads!\n你今年尚未签订过此类货物的合同\n你拥有[GetBuildingType('building_financial_centre').GetName]\n所选国家拥有[GetBuildingType('building_financial_centre').GetName]"
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ #  ██████╗██╗   ██╗██████╗ ██████╗ ███████╗███╗   ██╗ ██████╗██╗   ██╗    ██████╗ ███████╗███████╗███████╗██████╗ ██╗   ██╗███████╗███████╗
+ # ██╔════╝██║   ██║██╔══██╗██╔══██╗██╔════╝████╗  ██║██╔════╝╚██╗ ██╔╝    ██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██║   ██║██╔════╝██╔════╝
+ # ██║     ██║   ██║██████╔╝██████╔╝█████╗  ██╔██╗ ██║██║      ╚████╔╝     ██████╔╝█████╗  ███████╗█████╗  ██████╔╝██║   ██║█████╗  ███████╗
+ # ██║     ██║   ██║██╔══██╗██╔══██╗██╔══╝  ██║╚██╗██║██║       ╚██╔╝      ██╔══██╗██╔══╝  ╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██╔══╝  ╚════██║
+ # ╚██████╗╚██████╔╝██║  ██║██║  ██║███████╗██║ ╚████║╚██████╗   ██║       ██║  ██║███████╗███████║███████╗██║  ██║ ╚████╔╝ ███████╗███████║
+ #  ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝   ╚═╝       ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚══════╝
+ #
+ # ████████╗ ██████╗  ██████╗ ██╗  ████████╗██╗██████╗ ███████╗    ███████╗████████╗ █████╗ ████████╗███████╗    ██████╗  █████╗ ███╗   ██╗███████╗██╗
+ # ╚══██╔══╝██╔═══██╗██╔═══██╗██║  ╚══██╔══╝██║██╔══██╗██╔════╝    ██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝    ██╔══██╗██╔══██╗████╗  ██║██╔════╝██║
+ #    ██║   ██║   ██║██║   ██║██║     ██║   ██║██████╔╝███████╗    ███████╗   ██║   ███████║   ██║   █████╗      ██████╔╝███████║██╔██╗ ██║█████╗  ██║
+ #    ██║   ██║   ██║██║   ██║██║     ██║   ██║██╔═══╝ ╚════██║    ╚════██║   ██║   ██╔══██║   ██║   ██╔══╝      ██╔═══╝ ██╔══██║██║╚██╗██║██╔══╝  ██║
+ #    ██║   ╚██████╔╝╚██████╔╝███████╗██║   ██║██║     ███████║    ███████║   ██║   ██║  ██║   ██║   ███████╗    ██║     ██║  ██║██║ ╚████║███████╗███████╗
+ #    ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚═╝   ╚═╝╚═╝     ╚══════╝    ╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ RESERVE_CURRENCY_TOOLTIPS_pound:0 "$total_amount_pound$\n$pound_sterling_amount$\n$irish_pound_amount$\n$egyptian_pound_amount$"
+ total_amount_pound:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_pound_added_state')|=+D]@pound_sterling!"
+ pound_sterling_amount:0 "英镑@pound_sterling_c!: #T [State.MakeScope.Var('stockpiling_pound_sterling_state_1').GetValue|=+D]#! @pound_sterling!"
+ irish_pound_amount:0 "爱尔兰镑@irish_pound_c!: #T [State.MakeScope.Var('stockpiling_irish_pound_state_1').GetValue|=+D]#! @irish_pound!"
+ egyptian_pound_amount:0 "埃及镑@egyptian_pound_c!: #T [State.MakeScope.Var('stockpiling_egyptian_pound_state_1').GetValue|=+D]#! @egyptian_pound!"
+
+ RESERVE_CURRENCY_TOOLTIPS_franc:0 "$total_amount_franc$\n$french_franc_amount$\n$belgian_franc_amount$\n$swiss_franc_amount$\n$luxembourgish_franc_amount$"
+ total_amount_franc:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_franc_added_state')|+D] @french_franc!"
+ french_franc_amount:0 "法国法郎@french_franc_c!: #T [State.MakeScope.Var('stockpiling_french_franc_state_1').GetValue|=+D]#! @french_franc!"
+ belgian_franc_amount:0 "比利时法郎@belgian_franc_c!: #T [State.MakeScope.Var('stockpiling_belgian_franc_state_1').GetValue|=+D]#! @belgian_franc!"
+ swiss_franc_amount:0 "瑞士法郎@swiss_franc_c!: #T [State.MakeScope.Var('stockpiling_swiss_franc_state_1').GetValue|=+D]#! @swiss_franc!"
+ luxembourgish_franc_amount:0 "卢森堡法郎@luxembourgish_franc_c!: #T [State.MakeScope.Var('stockpiling_luxembourgish_franc_state_1').GetValue|=+D]#! @luxembourgish_franc!"
+
+ RESERVE_CURRENCY_TOOLTIPS_dollar:0 "$total_amount_dollar$\n$united_states_dollar_amount$\n$confederate_states_dollar_amount$\n$australian_dollar_amount$\n$new_zealand_dollar_amount$\n$singapore_dollar_amount$\n$liberian_dollar_amount$\n$caribbean_dollar_amount$"
+ total_amount_dollar:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_dollar_added_state')|+D] @french_franc!"
+ united_states_dollar_amount:0 "美元@united_states_dollar_c!: #T [State.MakeScope.Var('stockpiling_united_states_dollar_state_1').GetValue|=+D]#! @united_states_dollar!"
+ confederate_states_dollar_amount:0 "联邦美元@confederate_states_dollar_c!: #T [State.MakeScope.Var('stockpiling_confederate_states_dollar_state_1').GetValue|=+D]#! @confederate_states_dollar!"
+ canadian_dollar_amount:0 "加拿大元@canadian Dollar_c!: #T [State.MakeScope.Var('stockpiling_canadian_dollar_state_1').GetValue|=+D]#! @canadian_dollar!"
+ australian_dollar_amount:0 "澳大利亚元@australian_dollar_c!: #T [State.MakeScope.Var('stockpiling_australian_dollar_state_1').GetValue|=+D]#! @australian_dollar!"
+ new_zealand_dollar_amount:0 "新西兰元@new_zealand_dollar_c!: #T [State.MakeScope.Var('stockpiling_new_zealand_dollar_state_1').GetValue|=+D]#! @new_zealand_dollar!"
+ singapore_dollar_amount:0 "新加坡元@singapore_dollar_c!: #T [State.MakeScope.Var('stockpiling_singapore_dollar_state_1').GetValue|=+D]#! @singapore_dollar!"
+ liberian_dollar_amount:0 "利比里亚元@liberian_dollar_c!: #T [State.MakeScope.Var('stockpiling_liberian_dollar_state_1').GetValue|=+D]#! @liberian_dollar!"
+ caribbean_dollar_amount:0 "加勒比元@caribbean_dollar_c!: #T [State.MakeScope.Var('stockpiling_caribbean_dollar_state_1').GetValue|=+D]#! @caribbean_dollar!"
+
+ RESERVE_CURRENCY_TOOLTIPS_ruble:0 "$total_amount_ruble$\n$ruble_amount$"
+ total_amount_ruble:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_ruble_state')|+D] @ruble!"
+ ruble_amount:0 "卢布@ruble_c!: #T [State.MakeScope.Var('stockpiling_ruble_state_1').GetValue|=+D]#! @ruble!"
+
+ RESERVE_CURRENCY_TOOLTIPS_florin:0 "$total_amount_florin$\n$florin_amount$\n$indies_guilder_amount$\n$hungarian_forint_amount$
+ total_amount_florin:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_florin_added_state')|+D] @florin!"
+ florin_amount:0 "佛罗林@florin_c!: #T [State.MakeScope.Var('stockpiling_florin_state_1').GetValue|=+D]#! @florin!"
+ indies_guilder_amount:0 "荷兰东印度盾@indies_guilder_c!: #T [State.MakeScope.Var('stockpiling_indies_guilder_state_1').GetValue|=+D]#! @indies_guilder!"
+ hungarian_forint_amount:0 "匈牙利福林@hungarian_forint_c!: #T [State.MakeScope.Var('stockpiling_hungarian_forint_state_1').GetValue|=+D]#! @hungarian_forint!"
+
+ RESERVE_CURRENCY_TOOLTIPS_peseta:0 "$total_amount_peseta$\n$peseta_amount$
+ total_amount_peseta:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_peseta_state')|+D] @peseta!"
+ peseta_amount:0 "比塞塔@peseta_c!: #T [State.MakeScope.Var('stockpiling_peseta_state_1').GetValue|=+D]#! @peseta!"
+
+ RESERVE_CURRENCY_TOOLTIPS_gulden:0 "$total_amount_gulden$\n$gulden_amount$\n$bavarian_gulden_amount$\n$south_german_gulden_amount$
+ total_amount_gulden:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_gulden_added_state')|+D] @gulden!"
+ gulden_amount:0 "基尔德盾@gulden_c!: #T [State.MakeScope.Var('stockpiling_gulden_state_1').GetValue|=+D]#! @gulden!"
+ bavarian_gulden_amount:0 "巴戈利亚古尔登@bavarian_gulden_c!: #T [State.MakeScope.Var('stockpiling_bavarian_gulden_state_1').GetValue|=+D]#! @bavarian_gulden!"
+ south_german_gulden_amount:0 "南德古尔登@south_german_gulden_c!: #T [State.MakeScope.Var('stockpiling_south_german_gulden_state_1').GetValue|=+D]#! @south_german_gulden!"
+
+ RESERVE_CURRENCY_TOOLTIPS_mark:0 "$total_amount_mark$\n$mark_amount$\n$prussian_thaler_amount$\n$hannoveraner_thaler_amount$\n$saxon_thaler_amount$\n$finnish_markka_amount$"
+ total_amount_mark:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_mark_added_state')|+D] @mark!"
+ mark_amount:0 "马克@mark_c!: #T [State.MakeScope.Var('stockpiling_mark_state_1').GetValue|=+D]#! @mark!"
+ prussian_thaler_amount:0 "普鲁士塔勒@prussian_thaler_c!: #T [State.MakeScope.Var('stockpiling_prussian_thaler_state_1').GetValue|=+D]#! @prussian_thaler!"
+ hannoveraner_thaler_amount:0 "汉诺威塔勒@hannoveraner_thaler_c!: #T [State.MakeScope.Var('stockpiling_hannoveraner_thaler_state_1').GetValue|=+D]#! @hannoveraner_thaler!"
+ saxon_thaler_amount:0 "萨克森塔勒@saxon_thaler_c!: #T [State.MakeScope.Var('stockpiling_saxon_thaler_state_1').GetValue|=+D]#! @saxon_thaler!"
+ finnish_markka_amount:0 "芬兰马克@finnish_markka_c!: #T [State.MakeScope.Var('stockpiling_finnish_markka_state_1').GetValue|=+D]#! @finnish_markka!"
+
+ RESERVE_CURRENCY_TOOLTIPS_lira:0 "$total_amount_lira$\n$lira_amount$\n$ottoman_lira_amount$\n$toscane_lira_amount$\n$ducato_amount$\n$scudo_pontificio_amount$\n$scudo_sardo_amount$"
+ total_amount_lira:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_lira_added_state')|+D] @lira!"
+ lira_amount:0 "里拉@lira_c!: #T [State.MakeScope.Var('stockpiling_lira_state_1').GetValue|=+D]#! @lira!"
+ ottoman_lira_amount:0 "奥斯曼里拉@ottoman_lira_c!: #T [State.MakeScope.Var('stockpiling_ottoman_lira_state_1').GetValue|=+D]#! @ottoman_lira!"
+ toscane_lira_amount:0 "托斯卡纳里拉@toscane_lira_c!: #T [State.MakeScope.Var('stockpiling_toscane_lira_state_1').GetValue|=+D]#! @toscane_lira!"
+ ducato_amount:0 "杜卡托@ducato_c!: #T [State.MakeScope.Var('stockpiling_ducato_state_1').GetValue|=+D]#! @ducato!"
+ scudo_pontificio_amount:0 "罗马斯库多@scudo_pontificio_c!: #T [State.MakeScope.Var('stockpiling_scudo_pontificio_state_1').GetValue|=+D]#! @scudo_pontificio!"
+ scudo_sardo_amount:0 "撒丁岛斯库多@scudo_sardo_c!: #T [State.MakeScope.Var('stockpiling_scudo_sardo_state_1').GetValue|=+D]#! @scudo_sardo!"
+
+ RESERVE_CURRENCY_TOOLTIPS_real:0 "$total_amount_real$\n$real_amount$\n$brazilian_real_amount$"
+ total_amount_real:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_real_added_state')|+D] @real!"
+ real_amount:0 "雷亚尔@real_c!: #T [State.MakeScope.Var('stockpiling_real_state_1').GetValue|=+D]#! @real!"
+ brazilian_real_amount:0 "巴西雷亚尔@brazilian_real_c!: #T [State.MakeScope.Var('stockpiling_brazilian_real_state_1').GetValue|=+D]#! @brazilian_real!"
+
+ RESERVE_CURRENCY_TOOLTIPS_krone:0 "$total_amount_krone$\n$danish_krone_amount$\n$swedish_krona_amount$\n$norwegian_krone_amount$\n$icelandic_krona_amount$\n$estonian_kroon_amount$\n$czech_koruna_amount$\n$slovak_koruna_amount$"
+ total_amount_krone:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_krone_addes_state')|+D] @krone!"
+ danish_krone_amount:0 "丹麦克朗@danish_krone_c!: #T [State.MakeScope.Var('stockpiling_danish_krone_state_1').GetValue|=+D]#! @danish_krone!"
+ swedish_krona_amount:0 "瑞典克朗@swedish_krona_c!: #T [State.MakeScope.Var('stockpiling_swedish_krona_state_1').GetValue|=+D]#! @swedish_krona!"
+ norwegian_krone_amount:0 "挪威克朗@norwegian_krone_c!: #T [State.MakeScope.Var('stockpiling_norwegian_krone_state_1').GetValue|=+D]#! @norwegian_krone!"
+ icelandic_krona_amount:0 "冰岛克朗@icelandic_krona_c!: #T [State.MakeScope.Var('stockpiling_icelandic_krona_state_1').GetValue|=+D]#! @icelandic_krona!"
+ estonian_kroon_amount:0 "爱沙尼亚克朗@estonian_kroon_c!: #T [State.MakeScope.Var('stockpiling_estonian_kroon_state_1').GetValue|=+D]#! @estonian_kroon!"
+ czech_koruna_amount:0 "捷克克朗@czech_koruna_c!: #T [State.MakeScope.Var('stockpiling_czech_koruna_state_1').GetValue|=+D]#! @czech_koruna!"
+ slovak_koruna_amount:0 "斯洛伐克克朗@slovak_koruna_c!: #T [State.MakeScope.Var('stockpiling_slovak_koruna_state_1').GetValue|=+D]#! @slovak_koruna!"
+
+ RESERVE_CURRENCY_TOOLTIPS_leu:0 "$total_amount_leu$\n$leu_amount$\n$lev_amount$"
+ total_amount_leu:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_leu_added_state')|+D] @leu!"
+ leu_amount:0 "列伊@leu_c!: #T [State.MakeScope.Var('stockpiling_leu_state_1').GetValue|=+D]#! @leu!"
+ lev_amount:0 "列弗@lev_c!: #T [State.MakeScope.Var('stockpiling_lev_state_1').GetValue|=+D]#! @lev!"
+
+ RESERVE_CURRENCY_TOOLTIPS_lat:0 "$total_amount_lat$\n$latvian_lats_amount$\n$lithuanian_litas_amount$"
+ total_amount_lat:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_lat_added_state')|+D] @lat!"
+ latvian_lats_amount:0 "拉脱维亚拉特@latvian_lats_c!: #T [State.MakeScope.Var('stockpiling_latvian_lats_state_1').GetValue|=+D]#! @latvian_lats!"
+ lithuanian_litas_amount:0 "立陶宛立特@lithuanian_litas_c!: #T [State.MakeScope.Var('stockpiling_lithuanian_litas_state_1').GetValue|=+D]#! @lithuanian_litas!"
+
+ RESERVE_CURRENCY_TOOLTIPS_drachma:0 "$total_amount_drachma$\n$drachma_amount$"
+ total_amount_drachma:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_drachma_state')|+D] @drachma!"
+ drachma_amount:0 "德拉克马@drachma_c!: #T [State.MakeScope.Var('stockpiling_drachma_state_1').GetValue|=+D]#! @drachma!"
+
+ RESERVE_CURRENCY_TOOLTIPS_zloti:0 "$total_amount_zloti$\n$zloti_amount$"
+ total_amount_zloti:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_zloti_state')|+D] @zloti!"
+ zloti_amount:0 "兹罗提@zloti_c!: #T [State.MakeScope.Var('stockpiling_zloti_state_1').GetValue|=+D]#! @zloti!"
+
+ RESERVE_CURRENCY_TOOLTIPS_yen:0 "$total_amount_yen$\n$yen_amount$"
+ total_amount_yen:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_yen_state')|+D] @yen!"
+ yen_amount:0 "円@yen_c!: #T [State.MakeScope.Var('stockpiling_yen_state_1').GetValue|=+D]#! @yen!"
+
+ RESERVE_CURRENCY_TOOLTIPS_yuan:0 "$total_amount_yuan$\n$yuan_amount$"
+ total_amount_yuan:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_yuan_state')|+D] @yuan!"
+ yuan_amount:0 "元@yuan_c!: #T [State.MakeScope.Var('stockpiling_yuan_state_1').GetValue|=+D]#! @yuan!"
+
+ RESERVE_CURRENCY_TOOLTIPS_korean_won:0 "$total_amount_korean_won$\n$korean_won_amount$"
+ total_amount_korean_won:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_korean_won_state')|+D] @korean_won!"
+ korean_won_amount:0 "韩元@korean_won_c!: #T [State.MakeScope.Var('stockpiling_korean_won_state_1').GetValue|=+D]#! @korean_won!"
+
+ RESERVE_CURRENCY_TOOLTIPS_dinar:0 "$total_amount_dinar$\n$dinar_amount$\n$algerian_dinar_amount$\n$bahraini_dinar_amount$\n$iraqi_dinar_amount$\n$jordanian_dinar_amount$\n$libyan_dinar_amount$\n$serbian_dinar_amount$\n$tunisian_dinar_amount$\n$yugoslav_dinar_amount$\n$saudi_riyal_amount$\n$moroccan_dirham_amount$\n$omanian_rial_amount$\n$qatari_riyal_amount$\n$qatari_riyal_amount$"
+ total_amount_dinar:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_dinar_added_state')|+D] @dinar!"
+ dinar_amount:0 "第纳尔@dinar_c!: #T [State.MakeScope.Var('stockpiling_dinar_state_1').GetValue|=+D]#! @dinar!"
+ algerian_dinar_amount:0 "阿尔及利亚第纳尔@algerian_dinar_c!: #T [State.MakeScope.Var('stockpiling_algerian_dinar_state_1').GetValue|=+D]#! @algerian_dinar!"
+ bahraini_dinar_amount:0 "巴林第纳尔@bahraini_dinar_c!: #T [State.MakeScope.Var('stockpiling_bahraini_dinar_state_1').GetValue|=+D]#! @bahraini_dinar!"
+ iraqi_dinar_amount:0 "伊拉克第纳尔@iraqi_dinar_c!: #T [State.MakeScope.Var('stockpiling_iraqi_dinar_state_1').GetValue|=+D]#! @iraqi_dinar!"
+ jordanian_dinar_amount:0 "约旦第纳尔@jordanian_dinar_c!: #T [State.MakeScope.Var('stockpiling_jordanian_dinar_state_1').GetValue|=+D]#! @jordanian_dinar!"
+ libyan_dinar_amount:0 "利比亚第纳尔@libyan_dinar_c!: #T [State.MakeScope.Var('stockpiling_libyan_dinar_state_1').GetValue|=+D]#! @libyan_dinar!"
+ serbian_dinar_amount:0 "塞尔维亚第纳尔@serbian_dinar_c!: #T [State.MakeScope.Var('stockpiling_serbian_dinar_state_1').GetValue|=+D]#! @serbian_dinar!"
+ tunisian_dinar_amount:0 "突尼斯第纳尔@tunisian_dinar_c!: #T [State.MakeScope.Var('stockpiling_tunisian_dinar_state_1').GetValue|=+D]#! @tunisian_dinar!"
+ yugoslav_dinar_amount:0 "南斯拉夫第纳尔@yugoslav_dinar_c!: #T [State.MakeScope.Var('stockpiling_yugoslav_dinar_state_1').GetValue|=+D]#! @yugoslav_dinar!"
+ saudi_riyal_amount:0 "沙特里亚尔@saudi_riyal_c!: #T [State.MakeScope.Var('stockpiling_saudi_riyal_state_1').GetValue|=+D]#! @saudi_riyal!"
+ moroccan_dirham_amount:0 "摩洛哥迪拉姆@moroccan_dirham_c!: #T [State.MakeScope.Var('stockpiling_moroccan_dirham_state_1').GetValue|=+D]#! @moroccan_dirham!"
+ omanian_rial_amount:0 "阿曼里亚尔@omanian_rial_c!: #T [State.MakeScope.Var('stockpiling_omanian_rial_state_1').GetValue|=+D]#! @omanian_rial!"
+ qatari_riyal_amount:0 "卡塔尔里亚尔 @qatari_riyal_c!: #T [State.MakeScope.Var('stockpiling_qatari_riyal_state_1').GetValue|=+D]#! @qatari_riyal!"
+
+ RESERVE_CURRENCY_TOOLTIPS_peso:0 "$total_amount_peso$\n$peso_amount$\n$mexican_peso_amount$\n$peso_bolivien_amount$\n$philippine_peso_amount$\n$venezuelan_peso_amount$\n$ecuadorian_peso_amount$\n$cuban_peso_amount$\n$colombian_peso_amount$\n$chilean_peso_amount$\n$costa_rican_colon_amount$\n$nicaraguan_cordoba_amount$\n$honduran_lempira_amount$\n$guatemalan_quetzal_amount$\n$sol_de_oro_amount$"
+ total_amount_peso:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_peso_added_state')|+D] @peso!"
+ peso_amount:0 "比索@peso_c!: #T [State.MakeScope.Var('stockpiling_peso_state_1').GetValue|=+D]#! @peso!"
+ mexican_peso_amount:0 "墨西哥比索@mexican_peso_c!: #T [State.MakeScope.Var('stockpiling_mexican_peso_state_1').GetValue|=+D]#! @mexican_peso!"
+ peso_bolivien_amount:0 "玻利维亚比索@peso_bolivien_c!: #T [State.MakeScope.Var('stockpiling_peso_bolivien_state_1').GetValue|=+D]#! @peso_bolivien!"
+ philippine_peso_amount:0 "菲律宾比索@philippine_peso_c!: #T [State.MakeScope.Var('stockpiling_philippine_peso_state_1').GetValue|=+D]#! @philippine_peso!"
+ venezuelan_peso_amount:0 "委内瑞拉比索@venezuelan_peso_c!: #T [State.MakeScope.Var('stockpiling_venezuelan_peso_state_1').GetValue|=+D]#! @venezuelan_peso!"
+ ecuadorian_peso_amount:0 "厄瓜多尔比索@ecuadorian_peso_c!: #T [State.MakeScope.Var('stockpiling_ecuadorian_peso_state_1').GetValue|=+D]#! @ecuadorian_peso!"
+ cuban_peso_amount:0 "古巴比索@cuban_peso_c!: #T [State.MakeScope.Var('stockpiling_cuban_peso_state_1').GetValue|=+D]#! @cuban_peso!"
+ colombian_peso_amount:0 "哥伦比亚比索@colombian_peso_c!: #T [State.MakeScope.Var('stockpiling_colombian_peso_state_1').GetValue|=+D]#! @colombian_peso!"
+ chilean_peso_amount:0 "智利比索@chilean_peso_c!: #T [State.MakeScope.Var('stockpiling_chilean_peso_state_1').GetValue|=+D]#! @chilean_peso!"
+ costa_rican_colon_amount:0 "哥斯达黎加科朗@costa_rican_colon_c!: #T [State.MakeScope.Var('stockpiling_costa_rican_colon_state_1').GetValue|=+D]#! @costa_rican_colon!"
+ nicaraguan_cordoba_amount:0 "尼加拉瓜科多巴@nicaraguan_cordoba_c!: #T [State.MakeScope.Var('stockpiling_nicaraguan_cordoba_state_1').GetValue|=+D]#! @nicaraguan_cordoba!"
+ honduran_lempira_amount:0 "洪都拉斯伦皮拉@honduran_lempira_c!: #T [State.MakeScope.Var('stockpiling_honduran_lempira_state_1').GetValue|=+D]#! @honduran_lempira!"
+ guatemalan_quetzal_amount:0 "危地马拉格查尔@guatemalan_quetzal_c!: #T [State.MakeScope.Var('stockpiling_guatemalan_quetzal_state_1').GetValue|=+D]#! @guatemalan_quetzal!"
+ sol_de_oro_amount:0 "秘鲁索尔@sol_de_oro_c!: #T [State.MakeScope.Var('stockpiling_sol_de_oro_state_1').GetValue|=+D]#! @sol_de_oro!"
+
+ RESERVE_CURRENCY_TOOLTIPS_eco:0 "$total_amount_eco$\n$west_african_eco_amount$\n$central_african_eco_amount$\n$ariary_amount$\n$ethiopian_birr_amount$\n$nigerian_naira_amount$\n$ghanaian_cedi_amount$\n$south_african_rand_amount$\n$tuareg_ouguiya_amount$"
+ total_amount_eco:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_eco_added_state')|+D] @eco!"
+ west_african_eco_amount:0 "西非埃科@west_african_eco_c!: #T [State.MakeScope.Var('stockpiling_west_african_eco_state_1').GetValue|=+D]#! @west_african_eco!"
+ central_african_eco_amount:0 "中非埃科@central_african_eco_c!: #T [State.MakeScope.Var('stockpiling_central_african_eco_state_1').GetValue|=+D]#! @central_african_eco!"
+ ariary_amount:0 "阿里亚里@ariary_c!: #T [State.MakeScope.Var('stockpiling_ariary_state_1').GetValue|=+D]#! @ariary!"
+ ethiopian_birr_amount:0 "埃塞俄比亚比尔@ethiopian_birr_c!: #T [State.MakeScope.Var('stockpiling_ethiopian_birr_state_1').GetValue|=+D]#! @ethiopian_birr!"
+ nigerian_naira_amount:0 "尼日利亚奈拉@nigerian_naira_c!: #T [State.MakeScope.Var('stockpiling_nigerian_naira_state_1').GetValue|=+D]#! @nigerian_naira!"
+ ghanaian_cedi_amount:0 "加纳塞地@ghanaian_cedi_c!: #T [State.MakeScope.Var('stockpiling_ghanaian_cedi_state_1').GetValue|=+D]#! @ghanaian_cedi!"
+ south_african_rand_amount:0 "南非兰特@south_african_rand_c!: #T [State.MakeScope.Var('stockpiling_south_african_rand_state_1').GetValue|=+D]#! @south_african_rand!"
+ tuareg_ouguiya_amount:0 "图阿雷格乌吉亚@tuareg_ouguiya_c!: #T [State.MakeScope.Var('stockpiling_tuareg_ouguiya_state_1').GetValue|=+D]#! @tuareg_ouguiya!"
+
+ RESERVE_CURRENCY_TOOLTIPS_rupee:0 "$total_amount_rupee$\n$indian_rupee_amount$\n$indonesian_rupiah_amount$\n$pakistan_rupee_amount$"
+ total_amount_rupee:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_rupee_added_state')|+D] @rupee!"
+ indian_rupee_amount:0 "印度卢比@indian_rupee_c!: #T [State.MakeScope.Var('stockpiling_indian_rupee_state_1').GetValue|=+D]#! @indian_rupee!"
+ indonesian_rupiah_amount:0 "印度尼西亚盾@indonesian_rupiah_c!: #T [State.MakeScope.Var('stockpiling_indonesian_rupiah_state_1').GetValue|=+D]#! @indonesian_rupiah!"
+ pakistan_rupee_amount:0 "巴基斯坦卢比@pakistan_rupee_c!: #T [State.MakeScope.Var('stockpiling_pakistan_rupee_state_1').GetValue|=+D]#! @pakistan_rupee!"
+
+ RESERVE_CURRENCY_TOOLTIPS_baht:0 "$total_amount_baht$\n$baht_amount$"
+ total_amount_baht:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_baht_state')|+D] @baht!"
+ baht_amount:0 "泰铢@baht_c!: #T [State.MakeScope.Var('stockpiling_baht_state_1').GetValue|=+D]#! @baht!"
+
+ RESERVE_CURRENCY_TOOLTIPS_qiran:0 "$total_amount_qiran$\n$qiran_amount$"
+ total_amount_qiran:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_qiran_state')|+D] @qiran!"
+ qiran_amount:0 "伊朗克兰@qiran_c!: #T [State.MakeScope.Var('stockpiling_qiran_state_1').GetValue|=+D]#! @qiran!"
+
+ RESERVE_CURRENCY_TOOLTIPS_tical:0 "$total_amount_tical$\n$tical_amount$"
+ total_amount_tical:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_tical_state')|+D] @tical!"
+ tical_amount:0 "提卡@tical_c!: #T [State.MakeScope.Var('stockpiling_tical_state_1').GetValue|=+D]#! @tical!"
+
+ RESERVE_CURRENCY_TOOLTIPS_uni:0 "$total_amount_uni$\n$uni_amount$"
+ total_amount_uni:0 "#T 总数量:#! [State.GetOwner.MakeScope.ScriptValue('stockpiling_uni_state')|+D] @uni!"
+ uni_amount:0 "通货@uni_c!: #T [State.MakeScope.Var('stockpiling_uni_state_1').GetValue|=+D]#! @uni!"
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+ #  ██████╗██╗   ██╗██████╗ ██████╗ ███████╗███╗   ██╗ ██████╗██╗   ██╗    ██████╗ ███████╗███████╗███████╗██████╗ ██╗   ██╗███████╗███████╗
+ # ██╔════╝██║   ██║██╔══██╗██╔══██╗██╔════╝████╗  ██║██╔════╝╚██╗ ██╔╝    ██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██║   ██║██╔════╝██╔════╝
+ # ██║     ██║   ██║██████╔╝██████╔╝█████╗  ██╔██╗ ██║██║      ╚████╔╝     ██████╔╝█████╗  ███████╗█████╗  ██████╔╝██║   ██║█████╗  ███████╗
+ # ██║     ██║   ██║██╔══██╗██╔══██╗██╔══╝  ██║╚██╗██║██║       ╚██╔╝      ██╔══██╗██╔══╝  ╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██╔══╝  ╚════██║
+ # ╚██████╗╚██████╔╝██║  ██║██║  ██║███████╗██║ ╚████║╚██████╗   ██║       ██║  ██║███████╗███████║███████╗██║  ██║ ╚████╔╝ ███████╗███████║
+ #  ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝   ╚═╝       ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚══════╝
+ #
+ # ████████╗ ██████╗  ██████╗ ██╗  ████████╗██╗██████╗ ███████╗    ██████╗ ██╗   ██╗██████╗  ██████╗ ███████╗████████╗    ██████╗  █████╗ ███╗   ██╗███████╗██╗
+ # ╚══██╔══╝██╔═══██╗██╔═══██╗██║  ╚══██╔══╝██║██╔══██╗██╔════╝    ██╔══██╗██║   ██║██╔══██╗██╔════╝ ██╔════╝╚══██╔══╝    ██╔══██╗██╔══██╗████╗  ██║██╔════╝██║
+ #    ██║   ██║   ██║██║   ██║██║     ██║   ██║██████╔╝███████╗    ██████╔╝██║   ██║██║  ██║██║  ███╗█████╗     ██║       ██████╔╝███████║██╔██╗ ██║█████╗  ██║
+ #    ██║   ██║   ██║██║   ██║██║     ██║   ██║██╔═══╝ ╚════██║    ██╔══██╗██║   ██║██║  ██║██║   ██║██╔══╝     ██║       ██╔═══╝ ██╔══██║██║╚██╗██║██╔══╝  ██║
+ #    ██║   ╚██████╔╝╚██████╔╝███████╗██║   ██║██║     ███████║    ██████╔╝╚██████╔╝██████╔╝╚██████╔╝███████╗   ██║       ██║     ██║  ██║██║ ╚████║███████╗███████╗
+ #    ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚═╝   ╚═╝╚═╝     ╚══════╝    ╚═════╝  ╚═════╝ ╚═════╝  ╚═════╝ ╚══════╝   ╚═╝       ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝
+
+ #####################################################################################################################
+ #####################################################################################################################
+ #####################################################################################################################
+
+
+ RESERVE_CURRENCY_TOOLTIPS_player_pound:0 "$total_amount_BP_pound$\n$pound_sterling_amount_BP$\n$irish_pound_amount_BP$\n$egyptian_pound_amount_BP$"
+ total_amount_BP_pound:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_pound_added_state')|=+D] @pound_sterling!"
+ pound_sterling_amount_BP:0 "pound_sterling @pound_sterling_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_pound_sterling_state')|=+D]#! @pound_sterling!"
+ irish_pound_amount_BP:0 "爱尔兰镑 @irish_pound_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_irish_pound_state')|=+D]#! @irish_pound!"
+ egyptian_pound_amount_BP:0 "埃及镑@egyptian_pound_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_egyptian_pound_state')|=+D]#! @egyptian_pound!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_franc:0 "$total_amount_BP_franc$\n$french_franc_amount_BP$\n$belgian_franc_amount_BP$\n$swiss_franc_amount_BP$\n$luxembourgish_franc_amount_BP$"
+ total_amount_BP_franc:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_franc_added_state')|+D] @french_franc!"
+ french_franc_amount_BP:0 "法国法郎@french_franc_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_french_franc_state')|=+D]#! @french_franc!"
+ belgian_franc_amount_BP:0 "比利时法郎@belgian_franc_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_belgian_franc_state')|=+D]#! @belgian_franc!"
+ swiss_franc_amount_BP:0 "瑞士法郎@swiss_franc_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_swiss_franc_state')|=+D]#! @swiss_franc!"
+ luxembourgish_franc_amount_BP:0 "卢森堡法郎@luxembourgish_franc_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_luxembourgish_franc_state')|=+D]#! @luxembourgish_franc!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_dollar:0 "$total_amount_BP_dollar$\n$united_states_dollar_amount_BP$\n$confederate_states_dollar_amount_BP$\n$australian_dollar_amount_BP$\n$new_zealand_dollar_amount_BP$\n$singapore_dollar_amount_BP$\n$liberian_dollar_amount_BP$\n$caribbean_dollar_amount_BP$"
+ total_amount_BP_dollar:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_dollar_added_state')|+D] @french_franc!"
+ united_states_dollar_amount_BP:0 "美元@united_states_dollar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_united_states_dollar_state')|=+D]#! @united_states_dollar!"
+ confederate_states_dollar_amount_BP:0 "联邦美元@confederate_states_dollar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_confederate_states_dollar_state')|=+D]#! @confederate_states_dollar!"
+ canadian_dollar_amount_BP:0 "加拿大元@canadian_dollar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_canadian_dollar_state')|=+D]#! @canadian_dollar!"
+ australian_dollar_amount_BP:0 "澳大利亚元@australian_dollar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_australian_dollar_state')|=+D]#! @australian_dollar!"
+ new_zealand_dollar_amount_BP:0 "新西兰元@new_zealand_dollar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_new_zealand_dollar_state')|=+D]#! @new_zealand_dollar!"
+ singapore_dollar_amount_BP:0 "新加坡元@singapore_dollar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_singapore_dollar_state')|=+D]#! @singapore_dollar!"
+ liberian_dollar_amount_BP:0 "利比里亚元@liberian_dollar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_liberian_dollar_state')|=+D]#! @liberian_dollar!"
+ caribbean_dollar_amount_BP:0 "加勒比元@caribbean_dollar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_caribbean_dollar_state')|=+D]#! @caribbean_dollar!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_ruble:0 "$total_amount_BP_ruble$\n$ruble_amount_BP$"
+ total_amount_BP_ruble:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_ruble_state')|+D] @ruble!"
+ ruble_amount_BP:0 "卢布@ruble_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_ruble_state')|=+D]#! @ruble!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_florin:0 "$total_amount_BP_florin$\n$florin_amount_BP$\n$indies_guilder_amount_BP$\n$hungarian_forint_amount_BP$
+ total_amount_BP_florin:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_florin_added_state')|+D] @florin!"
+ florin_amount_BP:0 "佛罗林@florin_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_florin_state')|=+D]#! @florin!"
+ indies_guilder_amount_BP:0 "荷兰东印度盾@indies_guilder_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_indies_guilder_state')|=+D]#! @indies_guilder!"
+ hungarian_forint_amount_BP:0 "匈牙利福林@hungarian_forint_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_hungarian_forint_state')|=+D]#! @hungarian_forint!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_peseta:0 "$total_amount_BP_peseta$\n$peseta_amount_BP$
+ total_amount_BP_peseta:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_peseta_state')|+D] @peseta!"
+ peseta_amount_BP:0 "比塞塔@peseta_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_peseta_state')|=+D]#! @peseta!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_gulden:0 "$total_amount_BP_gulden$\n$gulden_amount_BP$\n$bavarian_gulden_amount_BP$\n$south_german_gulden_amount_BP$
+ total_amount_BP_gulden:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_gulden_added_state')|+D] @gulden!"
+ gulden_amount_BP:0 "基尔德盾@gulden_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_gulden_state')|=+D]#! @gulden!"
+ bavarian_gulden_amount_BP:0 "巴戈利亚古尔登@bavarian_gulden_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_bavarian_gulden_state')|=+D]#! @bavarian_gulden!"
+ south_german_gulden_amount_BP:0 "南德古尔登@south_german_gulden_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_south_german_gulden_state')|=+D]#! @south_german_gulden!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_mark:0 "$total_amount_BP_mark$\n$mark_amount_BP$\n$prussian_thaler_amount_BP$\n$hannoveraner_thaler_amount_BP$\n$saxon_thaler_amount_BP$\n$finnish_markka_amount_BP$"
+ total_amount_BP_mark:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_mark_added_state')|+D] @mark!"
+ mark_amount_BP:0 "马克@mark_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_mark_state')|=+D]#! @mark!"
+ prussian_thaler_amount_BP:0 "普鲁士塔勒@prussian_thaler_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_prussian_thaler_state')|=+D]#! @prussian_thaler!"
+ hannoveraner_thaler_amount_BP:0 "汉诺威塔勒@hannoveraner_thaler_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_hannoveraner_thaler_state')|=+D]#! @hannoveraner_thaler!"
+ saxon_thaler_amount_BP:0 "萨克森塔勒@saxon_thaler_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_saxon_thaler_state')|=+D]#! @saxon_thaler!"
+ finnish_markka_amount_BP:0 "芬兰马克@finnish_markka_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_finnish_markka_state')|=+D]#! @finnish_markka!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_lira:0 "$total_amount_BP_lira$\n$lira_amount_BP$\n$ottoman_lira_amount_BP$\n$toscane_lira_amount_BP$\n$ducato_amount_BP$\n$scudo_pontificio_amount_BP$\n$scudo_sardo_amount_BP$"
+ total_amount_BP_lira:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_lira_added_state')|+D] @lira!"
+ lira_amount_BP:0 "里拉@lira_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_lira_state')|=+D]#! @lira!"
+ ottoman_lira_amount_BP:0 "奥斯曼里拉@ottoman_lira_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_ottoman_lira_state')|=+D]#! @ottoman_lira!"
+ toscane_lira_amount_BP:0 "托斯卡纳里拉@toscane_lira_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_toscane_lira_state')|=+D]#! @toscane_lira!"
+ ducato_amount_BP:0 "杜卡托@ducato_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_ducato_state')|=+D]#! @ducato!"
+ scudo_pontificio_amount_BP:0 "罗马斯库多@scudo_pontificio_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_scudo_pontificio_state')|=+D]#! @scudo_pontificio!"
+ scudo_sardo_amount_BP:0 "撒丁岛斯库多@scudo_sardo_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_scudo_sardo_state')|=+D]#! @scudo_sardo!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_real:0 "$total_amount_BP_real$\n$real_amount_BP$\n$brazilian_real_amount_BP$"
+ total_amount_BP_real:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_real_added_state')|+D] @real!"
+ real_amount_BP:0 "雷亚尔@real_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_real_state')|=+D]#! @real!"
+ brazilian_real_amount_BP:0 "巴西雷亚尔@brazilian_real_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_brazilian_real_state')|=+D]#! @brazilian_real!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_krone:0 "$total_amount_BP_krone$\n$danish_krone_amount_BP$\n$swedish_krona_amount_BP$\n$norwegian_krone_amount_BP$\n$icelandic_krona_amount_BP$\n$estonian_kroon_amount_BP$\n$czech_koruna_amount_BP$\n$slovak_koruna_amount_BP$"
+ total_amount_BP_krone:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_krone_addes_state')|+D] @krone!"
+ danish_krone_amount_BP:0 "丹麦克朗@danish_krone_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_danish_krone_state')|=+D]#! @danish_krone!"
+ swedish_krona_amount_BP:0 "瑞典克朗@swedish_krona_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_swedish_krona_state')|=+D]#! @swedish_krona!"
+ norwegian_krone_amount_BP:0 "挪威克朗@norwegian_krone_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_norwegian_krone_state')|=+D]#! @norwegian_krone!"
+ icelandic_krona_amount_BP:0 "冰岛克朗@icelandic_krona_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_icelandic_krona_state')|=+D]#! @icelandic_krona!"
+ estonian_kroon_amount_BP:0 "爱沙尼亚克朗@estonian_kroon_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_estonian_kroon_state')|=+D]#! @estonian_kroon!"
+ czech_koruna_amount_BP:0 "捷克克朗@czech_koruna_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_czech_koruna_state')|=+D]#! @czech_koruna!"
+ slovak_koruna_amount_BP:0 "斯洛伐克克朗@slovak_koruna_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_slovak_koruna_state')|=+D]#! @slovak_koruna!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_leu:0 "$total_amount_BP_leu$\n$leu_amount_BP$\n$lev_amount_BP$"
+ total_amount_BP_leu:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_leu_added_state')|+D] @leu!"
+ leu_amount_BP:0 "列伊@leu_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_leu_state')|=+D]#! @leu!"
+ lev_amount_BP:0 "列弗@lev_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_lev_state')|=+D]#! @lev!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_lat:0 "$total_amount_BP_lat$\n$latvian_lats_amount_BP$\n$lithuanian_litas_amount_BP$"
+ total_amount_BP_lat:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_lat_added_state')|+D] @lat!"
+ latvian_lats_amount_BP:0 "拉脱维亚拉特@latvian_lats_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_latvian_lats_state')|=+D]#! @latvian_lats!"
+ lithuanian_litas_amount_BP:0 "立陶宛立特@lithuanian_litas_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_lithuanian_litas_state')|=+D]#! @lithuanian_litas!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_drachma:0 "$total_amount_BP_drachma$\n$drachma_amount_BP$"
+ total_amount_BP_drachma:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_drachma_state')|+D] @drachma!"
+ drachma_amount_BP:0 "德拉克马@drachma_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_drachma_state')|=+D]#! @drachma!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_zloti:0 "$total_amount_BP_zloti$\n$zloti_amount_BP$"
+ total_amount_BP_zloti:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_zloti_state')|+D] @zloti!"
+ zloti_amount_BP:0 "兹罗提@zloti_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_zloti_state')|=+D]#! @zloti!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_yen:0 "$total_amount_BP_yen$\n$yen_amount_BP$"
+ total_amount_BP_yen:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_yen_state')|+D] @yen!"
+ yen_amount_BP:0 "円@yen_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_yen_state')|=+D]#! @yen!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_yuan:0 "$total_amount_BP_yuan$\n$yuan_amount_BP$"
+ total_amount_BP_yuan:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_yuan_state')|+D] @yuan!"
+ yuan_amount_BP:0 "元@yuan_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_yuan_state')|=+D]#! @yuan!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_korean_won:0 "$total_amount_BP_korean_won$\n$korean_won_amount_BP$"
+ total_amount_BP_korean_won:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_korean_won_state')|+D] @korean_won!"
+ korean_won_amount_BP:0 "韩元@korean_won_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_korean_won_state')|=+D]#! @korean_won!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_dinar:0 "$total_amount_BP_dinar$\n$dinar_amount_BP$\n$algerian_dinar_amount_BP$\n$bahraini_dinar_amount_BP$\n$iraqi_dinar_amount_BP$\n$jordanian_dinar_amount_BP$\n$libyan_dinar_amount_BP$\n$serbian_dinar_amount_BP$\n$tunisian_dinar_amount_BP$\n$yugoslav_dinar_amount_BP$\n$saudi_riyal_amount_BP$\n$moroccan_dirham_amount_BP$\n$omanian_rial_amount_BP$\n$qatari_riyal_amount_BP$\n$qatari_riyal_amount_BP$"
+ total_amount_BP_dinar:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_dinar_added_state')|+D] @dinar!"
+ dinar_amount_BP:0 "第纳尔@dinar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_dinar_state')|=+D]#! @dinar!"
+ algerian_dinar_amount_BP:0 "阿尔及利亚第纳尔@algerian_dinar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_algerian_dinar_state')|=+D]#! @algerian_dinar!"
+ bahraini_dinar_amount_BP:0 "巴林第纳尔@bahraini_dinar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_bahraini_dinar_state')|=+D]#! @bahraini_dinar!"
+ iraqi_dinar_amount_BP:0 "伊拉克第纳尔@iraqi_dinar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_iraqi_dinar_state')|=+D]#! @iraqi_dinar!"
+ jordanian_dinar_amount_BP:0 "约旦第纳尔@jordanian_dinar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_jordanian_dinar_state')|=+D]#! @jordanian_dinar!"
+ libyan_dinar_amount_BP:0 "利比亚第纳尔@libyan_dinar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_libyan_dinar_state')|=+D]#! @libyan_dinar!"
+ serbian_dinar_amount_BP:0 "塞尔维亚第纳尔@serbian_dinar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_serbian_dinar_state')|=+D]#! @serbian_dinar!"
+ tunisian_dinar_amount_BP:0 "突尼斯第纳尔@tunisian_dinar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_tunisian_dinar_state')|=+D]#! @tunisian_dinar!"
+ yugoslav_dinar_amount_BP:0 "南斯拉夫第纳尔@yugoslav_dinar_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_yugoslav_dinar_state')|=+D]#! @yugoslav_dinar!"
+ saudi_riyal_amount_BP:0 "沙特里亚尔@saudi_riyal_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_saudi_riyal_state')|=+D]#! @saudi_riyal!"
+ moroccan_dirham_amount_BP:0 "摩洛哥迪拉姆@moroccan_dirham_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_moroccan_dirham_state')|=+D]#! @moroccan_dirham!"
+ omanian_rial_amount_BP:0 "阿曼里亚尔@omanian_rial_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_omanian_rial_state')|=+D]#! @omanian_rial!"
+ qatari_riyal_amount_BP:0 "卡塔尔里亚尔@qatari_riyal_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_qatari_riyal_state')|=+D]#! @qatari_riyal!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_peso:0 "$total_amount_BP_peso$\n$peso_amount_BP$\n$mexican_peso_amount_BP$\n$peso_bolivien_amount_BP$\n$philippine_peso_amount_BP$\n$venezuelan_peso_amount_BP$\n$ecuadorian_peso_amount_BP$\n$cuban_peso_amount_BP$\n$colombian_peso_amount_BP$\n$chilean_peso_amount_BP$\n$costa_rican_colon_amount_BP$\n$nicaraguan_cordoba_amount_BP$\n$honduran_lempira_amount_BP$\n$guatemalan_quetzal_amount_BP$\n$sol_de_oro_amount_BP$"
+ total_amount_BP_peso:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_peso_added_state')|+D] @peso!"
+ peso_amount_BP:0 "比索@peso_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_peso_state')|=+D]#! @peso!"
+ mexican_peso_amount_BP:0 "墨西哥比索@mexican_peso_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_mexican_peso_state')|=+D]#! @mexican_peso!"
+ peso_bolivien_amount_BP:0 "玻利维亚比索@peso_bolivien_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_peso_bolivien_state')|=+D]#! @peso_bolivien!"
+ philippine_peso_amount_BP:0 "菲律宾比索@philippine_peso_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_philippine_peso_state')|=+D]#! @philippine_peso!"
+ venezuelan_peso_amount_BP:0 "委内瑞拉比索@venezuelan_peso_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_venezuelan_peso_state')|=+D]#! @venezuelan_peso!"
+ ecuadorian_peso_amount_BP:0 "厄瓜多尔比索@ecuadorian_peso_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_ecuadorian_peso_state')|=+D]#! @ecuadorian_peso!"
+ cuban_peso_amount_BP:0 "古巴比索@cuban_peso_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_cuban_peso_state')|=+D]#! @cuban_peso!"
+ colombian_peso_amount_BP:0 "哥伦比亚比索@colombian_peso_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_colombian_peso_state')|=+D]#! @colombian_peso!"
+ chilean_peso_amount_BP:0 "智利比索@chilean_peso_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_chilean_peso_state')|=+D]#! @chilean_peso!"
+ costa_rican_colon_amount_BP:0 "哥斯达黎加科朗@costa_rican_colon_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_costa_rican_colon_state')|=+D]#! @costa_rican_colon!"
+ nicaraguan_cordoba_amount_BP:0 "尼加拉瓜科多巴@nicaraguan_cordoba_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_nicaraguan_cordoba_state')|=+D]#! @nicaraguan_cordoba!"
+ honduran_lempira_amount_BP:0 "洪都拉斯伦皮拉@honduran_lempira_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_honduran_lempira_state')|=+D]#! @honduran_lempira!"
+ guatemalan_quetzal_amount_BP:0 "危地马拉格查尔@guatemalan_quetzal_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_guatemalan_quetzal_state')|=+D]#! @guatemalan_quetzal!"
+ sol_de_oro_amount_BP:0 "秘鲁索尔@sol_de_oro_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_sol_de_oro_state')|=+D]#! @sol_de_oro!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_eco:0 "$total_amount_BP_eco$\n$west_african_eco_amount_BP$\n$central_african_eco_amount_BP$\n$ariary_amount_BP$\n$ethiopian_birr_amount_BP$\n$nigerian_naira_amount_BP$\n$ghanaian_cedi_amount_BP$\n$south_african_rand_amount_BP$\n$tuareg_ouguiya_amount_BP$"
+ total_amount_BP_eco:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_eco_added_state')|+D] @eco!"
+ west_african_eco_amount_BP:0 "西非埃科@west_african_eco_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_west_african_eco_state')|=+D]#! @west_african_eco!"
+ central_african_eco_amount_BP:0 "中非埃科@central_african_eco_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_central_african_eco_state')|=+D]#! @central_african_eco!"
+ ariary_amount_BP:0 "阿里亚里@ariary_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_ariary_state')|=+D]#! @ariary!"
+ ethiopian_birr_amount_BP:0 "埃塞俄比亚比尔@ethiopian_birr_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_ethiopian_birr_state')|=+D]#! @ethiopian_birr!"
+ nigerian_naira_amount_BP:0 "尼日利亚奈拉@nigerian_naira_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_nigerian_naira_state')|=+D]#! @nigerian_naira!"
+ ghanaian_cedi_amount_BP:0 "加纳塞地@ghanaian_cedi_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_ghanaian_cedi_state')|=+D]#! @ghanaian_cedi!"
+ south_african_rand_amount_BP:0 "南非兰特@south_african_rand_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_south_african_rand_state')|=+D]#! @south_african_rand!"
+ tuareg_ouguiya_amount_BP:0 "图阿雷格乌吉亚@tuareg_ouguiya_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_tuareg_ouguiya_state')|=+D]#! @tuareg_ouguiya!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_rupee:0 "$total_amount_BP_rupee$\n$indian_rupee_amount_BP$\n$indonesian_rupiah_amount_BP$\n$pakistan_rupee_amount_BP$"
+ total_amount_BP_rupee:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_rupee_added_state')|+D] @rupee!"
+ indian_rupee_amount_BP:0 "印度卢比@indian_rupee_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_indian_rupee_state')|=+D]#! @indian_rupee!"
+ indonesian_rupiah_amount_BP:0 "印度尼西亚盾@indonesian_rupiah_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_indonesian_rupiah_state')|=+D]#! @indonesian_rupiah!"
+ pakistan_rupee_amount_BP:0 "巴基斯坦卢比@pakistan_rupee_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_pakistan_rupee_state')|=+D]#! @pakistan_rupee!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_baht:0 "$total_amount_BP_baht$\n$baht_amount_BP$"
+ total_amount_BP_baht:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_baht_state')|+D] @baht!"
+ baht_amount_BP:0 "泰铢@baht_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_baht_state')|=+D]#! @baht!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_qiran:0 "$total_amount_BP_qiran$\n$qiran_amount_BP$"
+ total_amount_BP_qiran:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_qiran_state')|+D] @qiran!"
+ qiran_amount_BP:0 "伊朗克兰@qiran_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_qiran_state')|=+D]#! @qiran!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_tical:0 "$total_amount_BP_tical$\n$tical_amount_BP$"
+ total_amount_BP_tical:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_tical_state')|+D] @tical!"
+ tical_amount_BP:0 "提卡@tical_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_tical_state')|=+D]#! @tical!"
+
+ RESERVE_CURRENCY_TOOLTIPS_player_uni:0 "$total_amount_BP_uni$\n$uni_amount_BP$"
+ total_amount_BP_uni:0 "#T 总数量:#! [GetPlayer.MakeScope.ScriptValue('stockpiling_uni_added_state')|+D] @uni!"
+ uni_amount_BP:0 "通货@uni_c!: #T [GetPlayer.MakeScope.ScriptValue('stockpiling_uni_state')|=+D]#! @uni!"
