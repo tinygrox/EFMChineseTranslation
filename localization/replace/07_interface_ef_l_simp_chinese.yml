@@ -111,7 +111,7 @@
  central_bank_gold_stacked_per_month:0 "每月储存的黄金"
  gold_balance_scripted:0 "[concept_gold_balance]"
  current_account:0 "货期账户" #same as central_bank_gold_stacked_per_month but more small
- delta_value:0 "国际收支 (月度)"
+ delta_value:0 "国际收支（月度）"
  delta_value_small:0 "国际收支"
  transfer_gold_to_central_bank_gold_reserves:0 "将黄金转入到央行黄金储备"
  budget_panel_desc_reserve_currency:0 "在19世纪，“储备货币”指政府和国家中央银行广泛收纳外币来作为国际间交易的储备，来维持国家稳定。"
@@ -124,8 +124,8 @@
  off:0 "#n 关闭#!:"
  on:0 "#p 打开#!:"
 
- funding_on:0 "资金筹集"
- funding_off:0 "资金分撒"
+ funding_on:0 "资金投入"
+ funding_off:0 "资金断供"
 
  apply_for_international_funding:0 "申请国际资助"
 
